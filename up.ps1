@@ -10,3 +10,4 @@ choco install spotify -y
 choco install reaper -y
 choco install itch -y
 choco install keepass -y
+choco install windirstat -y
