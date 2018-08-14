@@ -1,11 +1,12 @@
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco install firefox
-choco install vscode
-choco install hg
-choco install git
-choco install discord
-choco install steam
-choco install spotify
-choco install reaper
-choco install itch
-choco install keepass
+
+choco install firefox -y
+choco install vscode -y
+choco install hg -y
+choco install git -y
+choco install discord -y
+choco install steam -y
+choco install spotify -y
+choco install reaper -y
+choco install itch -y
+choco install keepass -y
