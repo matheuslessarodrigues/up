@@ -8,3 +8,4 @@ choco install steam
 choco install spotify
 choco install reaper
 choco install itch
+choco install keepass
