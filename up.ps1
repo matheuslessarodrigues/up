@@ -12,3 +12,4 @@ choco install itch -y
 choco install keepass -y
 choco install windirstat -y
 choco install sharex -y
+choco install putty -y
