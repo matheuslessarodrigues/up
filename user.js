@@ -27,6 +27,8 @@ user_pref("lightweightThemes.selectedThemeID", "firefox-compact-dark@mozilla.org
 user_pref("devtools.theme", "dark");
 user_pref("browser.uiCustomization.state", '{"placements":{"widget-overflow-fixed-list":["languagetool-webextension_languagetool_org-browser-action","ublock0-button","downloads-button","sync-button","ublock0_raymondhill_net-browser-action","87677a2c52b84ad3a151a4a72f5bd3c4_jetpack-browser-action"],"PersonalToolbar":["personal-bookmarks"],"nav-bar":["back-button","forward-button","toggle-button--supportlastpasscom-lastpass-button","stop-reload-button","urlbar-container"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","alltabs-button"]},"seen":["pocket-button","developer-button","webide-button","87677a2c52b84ad3a151a4a72f5bd3c4_jetpack-browser-action","ublock0-button","languagetool-webextension_languagetool_org-browser-action","action-button--keybinderfailcl-keybinderoolbarutton","screenshots_mozilla_org-browser-action","jid1-niffy2ca8fy1tg_jetpack-browser-action","ublock0_raymondhill_net-browser-action","toggle-button--supportlastpasscom-lastpass-button"],"dirtyAreaCache":["PersonalToolbar","nav-bar","TabsToolbar","toolbar-menubar","PanelUI-contents","addon-bar","widget-overflow-fixed-list"],"currentVersion":14,"newElementCount":41}');
 user_pref("browser.uidensity", 1);
+user_pref("browser.download.forbid_open_with", true);
+user_pref("browser.download.autohideButton", false);
 
 // disable "recommended by pocket"
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
