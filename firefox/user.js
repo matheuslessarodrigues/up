@@ -32,3 +32,4 @@ user_pref("browser.download.autohideButton", false);
 
 // disable "recommended by pocket"
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
+user_pref("general.warnOnAboutConfig", false);
