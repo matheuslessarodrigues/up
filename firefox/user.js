@@ -16,6 +16,7 @@ user_pref("browser.newtab.preload", false);
 user_pref("browser.newtabpage.directory.ping", "");
 user_pref("browser.newtabpage.directory.source", "data:text/plain,{}");
 user_pref("browser.urlbar.placeholderName", "DuckDuckGo");
+user_pref("browser.newtabpage.introShown", true);
 
 // color
 user_pref("reader.color_scheme", "dark");
