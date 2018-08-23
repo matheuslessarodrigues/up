@@ -30,7 +30,9 @@ user_pref("browser.uiCustomization.state", '{"placements":{"widget-overflow-fixe
 user_pref("browser.uidensity", 1);
 user_pref("browser.download.forbid_open_with", true);
 user_pref("browser.download.autohideButton", false);
+user_pref("services.sync.declinedEngines", "passwords,bookmarks");
 
-// disable "recommended by pocket"
+// disable pocket
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("general.warnOnAboutConfig", false);
+user_pref("extensions.pocket.enabled", false);
