@@ -8,7 +8,7 @@ user_pref("browser.search.update", false);
 
 // new tab
 user_pref("browser.urlbar.placeholderName", "DuckDuckGo");
-user_pref("browser.startup.homepage", "data:text/html,<html style='background:black'><title>New Tab</title></html>");
+user_pref("browser.startup.homepage", "about:blank");
 user_pref("browser.newtabpage.enabled", true);
 user_pref("browser.newtab.url", "about:blank");
 user_pref("browser.newtabpage.activity-stream.enabled", false);
