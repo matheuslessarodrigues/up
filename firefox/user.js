@@ -34,3 +34,7 @@ user_pref("ui.osk.enabled", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("general.warnOnAboutConfig", false);
 user_pref("extensions.pocket.enabled", false);
+
+// performance
+user_pref("gfx.canvas.azure.accelerated", true);
+user_pref("layers.acceleration.force-enabled", true);
