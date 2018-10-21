@@ -17,6 +17,7 @@ user_pref("browser.newtabpage.directory.ping", "");
 user_pref("browser.newtabpage.directory.source", "data:text/plain,{}");
 user_pref("browser.newtabpage.introShown", true);
 
+// activity stream
 user_pref("browser.newtabpage.activity-stream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.showSearch", false);
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
