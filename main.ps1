@@ -13,4 +13,4 @@ choco install spotify -y
 choco install itch -y
 choco install windirstat -y
 choco install sharex -y
-choco install putty -y
+choco install logitechgaming -y
