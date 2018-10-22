@@ -14,3 +14,4 @@ choco install itch -y
 choco install windirstat -y
 choco install sharex -y
 choco install logitechgaming -y
+choco install telegram -y
