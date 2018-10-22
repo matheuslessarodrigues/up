@@ -4,9 +4,9 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 
 choco install keepass -y
 choco install firefox -y
-choco install vscode -y
+choco install vscode --params "/NoContextMenuFile /NoContextMenuFolders" -y
 choco install hg -y
-choco install git -y
+choco install git --params "/GitOnlyOnPath /NoShellIntegration" -y
 choco install discord -y
 choco install steam -y
 choco install spotify -y
