@@ -1,3 +1,5 @@
+REM put inside windows+r "shell:startup"
+
 @echo off
 set wallpaperLocation=%USERPROFILE%\Pictures
 
