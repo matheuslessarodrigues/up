@@ -1,16 +1,22 @@
+@echo off
+
 REM put inside windows+r "shell:startup"
 
-@echo off
-set wallpaperLocation=%USERPROFILE%\Pictures
+REM schtasks /create /tn "start" /sc onstart /delay 0000:30 /rl highest /ru system /tr "powershell.exe -file <<The powershell script path>>
+
+set wallpaperLocation=%USERPROFILE%\Pictures\SpotlightWallpapers
+
+rmdir %wallpaperLocation%
+mkdir %wallpaperLocation%
 
 FOR /F "tokens=3* USEBACKQ" %%F IN (`reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Lock Screen\Creative" /v LandscapeAssetPath`) DO (
 SET spotlightLocation=%%F
 )
 
-COPY /Y %spotlightLocation% %wallpaperLocation%\spotlight_wallpaper.jpg
+COPY /Y %spotlightLocation% %wallpaperLocation%\current_spotlight.jpg
 
-reg delete "HKEY_CURRENT_USER\control panel\desktop" /v TranscodedImageCache /f
-reg add "HKEY_CURRENT_USER\control panel\desktop" /v wallpaper /t REG_SZ /d %wallpaperLocation%\spotlight_wallpaper.jpg /f
-reg add "HKEY_CURRENT_USER\control panel\desktop" /v WallpaperStyle /t REG_SZ /d 2 /f
+REM reg delete "HKEY_CURRENT_USER\Control Panel\Desktop" /v TranscodedImageCache /f
+REM reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d %wallpaperLocation%\current_spotlight.bmp /f
+REM reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v WallpaperStyle /t REG_SZ /d 10 /f
 
-RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+REM RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
