@@ -1,16 +1,15 @@
 @echo off
 
-REM put inside windows+r "shell:startup"
-
 REM schtasks /create /tn "start" /sc onstart /delay 0000:30 /rl highest /ru system /tr "powershell.exe -file <<The powershell script path>>
+REM put inside windows+r "shell:startup"
 
 set wallpaperLocation=%USERPROFILE%\Pictures\SpotlightWallpapers
 
-rmdir %wallpaperLocation%
 mkdir %wallpaperLocation%
 
 FOR /F "tokens=3* USEBACKQ" %%F IN (`reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Lock Screen\Creative" /v LandscapeAssetPath`) DO (
 SET spotlightLocation=%%F
+echo %%F
 )
 
 COPY /Y %spotlightLocation% %wallpaperLocation%\current_spotlight.jpg
