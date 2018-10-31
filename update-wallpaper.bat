@@ -3,7 +3,11 @@ rem put inside windows+r "shell:startup"
 
 set wallpaperLocation=%USERPROFILE%\Pictures\SpotlightWallpapers
 
-mkdir %wallpaperLocation%
+if EXIST %wallpaperLocation% (
+	del %wallpaperLocation%\*.* /S /Q
+) ELSE (
+	mkdir %wallpaperLocation%
+)
 
 for /F "tokens=3* usebackq" %%F in (`reg query "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lock Screen\Creative" /v HotspotImageFolderPath`) do (
 	set spotlightFolder=%%F
