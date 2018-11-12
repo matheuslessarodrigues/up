@@ -15,9 +15,25 @@ for /F "tokens=3* usebackq" %%F in (`reg query "HKEY_CURRENT_USER\Software\Micro
 
 echo %spotlightFolder%
 
+for /F "tokens=*" %%F in ('dir %spotlightFolder% /b /od') do (
+	set latestFile=%%F
+)
+
+echo %latestFile%
+
+for /R %spotlightFolder% %%F in (*) do (
+	if %%~nF EQU %latestFile% (
+		for /F "tokens=1" %%D in ("%%~tF") do (
+			set latestDate=%%D
+		)
+	)
+)
+
+echo %latestDate%
+
 for /R %spotlightFolder% %%F in (*) do (
 	for /F "tokens=1" %%D in ("%%~tF") do (
-		if %%D EQU %date% (
+		if %%D EQU %latestDate% (
 			for /F "usebackq" %%R in (`powershell -command "$i=New-Object -ComObject Wia.ImageFile; $i.LoadFile('%%F'); if($i.Width -gt $i.Height){$true}"`) do (
 				copy /Y %%F %wallpaperLocation%\*.jpg
 			)
