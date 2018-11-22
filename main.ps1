@@ -8,11 +8,10 @@ choco install firefox -y
 choco install imageglass -y
 choco install sharex -y
 choco install windirstat -y
-choco install spotify -y
 choco install logitechgaming -y
+choco install spotify -y
 
 // Communication
-choco install telegram -y
 choco install discord -y
 
 // Dev
