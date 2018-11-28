@@ -47,7 +47,7 @@ user_pref("gfx.canvas.azure.accelerated", true);
 user_pref("layers.acceleration.force-enabled", true);
 
 // privacy
-user_pref("privacy.firstparty.isolate", true );
+user_pref("privacy.firstparty.isolate", true);
 user_pref("privacy.resistFingerprinting", true);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("browser.cache.offline.enable", false);
@@ -66,7 +66,8 @@ user_pref("network.cookie.cookieBehavior", 1);
 user_pref("network.http.referer.trimmingPolicy", 2);
 user_pref("network.http.referer.XOriginPolicy", 2);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
-user_pref("browser.sessionstore.privacy_level", 2);
+//user_pref("network.cookie.lifetimePolicy", 2);
+//user_pref("browser.sessionstore.privacy_level", 2);
 user_pref("network.IDN_show_punycode", true);
 user_pref("extensions.blocklist.url", "https://blocklists.settings.services.mozilla.com/v1/blocklist/3/%20/%20/");
 
