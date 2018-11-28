@@ -4,8 +4,8 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 
 // Main
 //choco install keepass -y
-//choco install firefox -y
-choco install brave -y
+choco install firefox -y
+//choco install brave -y
 choco install imageglass -y
 choco install sharex -y
 choco install windirstat -y
