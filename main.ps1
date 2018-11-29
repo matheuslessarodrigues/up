@@ -21,6 +21,7 @@ choco install hg -y
 choco install putty -y
 choco install vscode --params "/NoContextMenuFile /NoContextMenuFolders" -y
 choco install dotnetcore-sdk -y
+//choco install netfx-4.7.1-devpack -y
 
 // Games
 choco install steam -y
