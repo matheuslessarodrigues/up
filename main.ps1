@@ -26,3 +26,7 @@ choco install itch -y
 //choco install keepass -y
 //choco install brave -y
 //choco install imageglass -y
+
+// PowerShell Profile
+echo iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/matheuslessarodrigues/up/master/Microsoft.PowerShell_profile.ps1')) > $Profile
+
