@@ -1,5 +1,3 @@
-// Put this under $Profile
-
 Function Find-File {
 	[cmdletbinding()]
 	[Alias("ff")]
