@@ -29,4 +29,4 @@ choco install itch -y
 
 // PowerShell Profile
 ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/matheuslessarodrigues/up/master/Microsoft.PowerShell_profile.ps1')) > $Profile
-((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/manojlds/Todo.ps1/master/Todo.ps1/todo.psm1')) >> $Profile
+((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/manojlds/Todo.ps1/master/Todo.ps1/todo.psm1')) -replace "Export-ModuleMember.*$" >> $Profile
