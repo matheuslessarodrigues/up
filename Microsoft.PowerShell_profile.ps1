@@ -56,7 +56,7 @@ Function Get-Todo-File {
 	Process {
 		$file = join-path -Path $env:UserProfile -ChildPath "todo.txt"
 		if (!(Test-Path $file)) {
-			New-Item -path $env:UserProfile -name "todo.txt" -type "file"
+			new-item -path $env:UserProfile -name "todo.txt" -type "file"
 		}
 
 		return $file
@@ -104,13 +104,13 @@ Function Todo-Remove {
 	)
 	Process {
 		$file = Get-Todo-File
-		$content = get-content $file
+		$content = @(get-content $file)
 		[System.Collections.ArrayList]$lines = $content
 		[System.Collections.ArrayList]$selectedLines = @()
 
-		$Indexes = $Indexes | sort -desc
+		$Indexes = @($Indexes | sort -desc)
 		foreach($index in $Indexes) {
-			$selectedLines.Add($lines[$index])
+			$_ = $selectedLines.Add($lines[$index])
 			$lines.RemoveAt($index)
 		}
 
@@ -131,21 +131,22 @@ Function Todo-Prioritize {
 	)
 	Process {
 		$file = Get-Todo-File
-		$content = get-content $file
+		$content = @(get-content $file)
 		[System.Collections.ArrayList]$lines = $content
 		[System.Collections.ArrayList]$selectedLines = @()
 
+		$Indexes = @($Indexes)
 		foreach($index in $Indexes) {
-			$selectedLines.Add($lines[$index])
+			$_ = $selectedLines.Add($lines[$index])
 		}
 
-		$Indexes = $Indexes | sort -desc
+		$Indexes = @($Indexes | sort -desc)
 		foreach($index in $Indexes) {
 			$lines.RemoveAt($index)
 		}
 
 		Todo-Backup
-		set-content -path $file -value ($selectedLines, $lines)
+		set-content -path $file -value ($selectedLines + $lines)
 
 		write-host "Prioritized tasks:"
 		write-host -Object $selectedLines -Separator `n
@@ -165,7 +166,7 @@ Function Todo-Where {
 	)
 	Process {
 		$file = Get-Todo-File
-		$content = get-content $file
+		$content = @(get-content $file)
 
 		$Text = $Text -join ' '
 		$Text = "(\s+|^)" + $Text + "(\s+|$)"
@@ -181,7 +182,8 @@ Function Todo-Where {
 
 			if ($Prioritize) {
 				Todo-Backup
-				set-content -path $file -value ($matched, $filtered)
+				set-content -path $file -value ($matched + $filtered)
+				write-host "Tasks prioritized"
 			} elseif ($Remove) {
 				$reply = Read-Host -Prompt "Remove? [y/N]"
 				if ( $reply -match "[yY]" ) {
