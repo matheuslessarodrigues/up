@@ -69,7 +69,7 @@ Function Todo-List {
 	Param ()
 	Process {
 		$file = Get-Todo-File
-		$lines = get-content $file
+		$lines = @(get-content $file)
 
 		for ($i=0; $i -lt $lines.Length; $i++) {
 			write-host "[", $i, "]", $lines[$i]
@@ -87,11 +87,15 @@ Function Todo-Add {
 	Process {
 		$file = Get-Todo-File
 		$line = $Task -join ' '
+
+		Todo-Backup
 		add-content -path $file -value $line
+
+		write-host "Task added"
 	}
 }
 
-Function Todo-RemoveAt {
+Function Todo-Remove {
 	[cmdletbinding()]
 	[Alias("tr")]
 	Param (
@@ -102,22 +106,60 @@ Function Todo-RemoveAt {
 		$file = Get-Todo-File
 		$content = get-content $file
 		[System.Collections.ArrayList]$lines = $content
+		[System.Collections.ArrayList]$selectedLines = @()
+
+		$Indexes = $Indexes | sort -desc
+		foreach($index in $Indexes) {
+			$selectedLines.Add($lines[$index])
+			$lines.RemoveAt($index)
+		}
+
+		Todo-Backup
+		set-content -path $file -value $lines
+
+		write-host "Removed tasks:"
+		write-host -Object $selectedLines -Separator `n
+	}
+}
+
+Function Todo-Prioritize {
+	[cmdletbinding()]
+	[Alias("tp")]
+	Param (
+		[Parameter(ValueFromRemainingArguments)]
+		[int[]]$Indexes
+	)
+	Process {
+		$file = Get-Todo-File
+		$content = get-content $file
+		[System.Collections.ArrayList]$lines = $content
+		[System.Collections.ArrayList]$selectedLines = @()
+
+		foreach($index in $Indexes) {
+			$selectedLines.Add($lines[$index])
+		}
 
 		$Indexes = $Indexes | sort -desc
 		foreach($index in $Indexes) {
 			$lines.RemoveAt($index)
 		}
 
-		set-content -path $file -value $lines
+		Todo-Backup
+		set-content -path $file -value ($selectedLines, $lines)
+
+		write-host "Prioritized tasks:"
+		write-host -Object $selectedLines -Separator `n
 	}
 }
 
-Function Todo-RemoveWhere {
+Function Todo-Where {
 	[cmdletbinding()]
 	[Alias("tw")]
 	Param (
-		[Alias("a")]
-		[switch]$All,
+		[Alias("p")]
+		[switch]$Prioritize,
+		[Alias("r")]
+		[switch]$Remove,
 		[Parameter(ValueFromRemainingArguments)]
 		[string[]]$Text
 	)
@@ -129,14 +171,50 @@ Function Todo-RemoveWhere {
 		$Text = "(\s+|^)" + $Text + "(\s+|$)"
 
 		$filtered = @($content | where { $_ -notmatch $Text })
+		$matched = @($content | where { $_ -match $Text })
 
-		if (($filtered.Length -eq ($content.Length - 1)) -or $All) {
-			set-content -path $file -value $content
-		} elseif ($filtered.Length -lt ($content.Length - 1)) {
-			$matches = $content | where { $_ -match $Text }
+		if ($matched.Length -eq 0) {
+			write-host "No match"
+		} else {
+			write-host "Matched tasks:"
+			write-host -Object $matched -Separator `n
 
-			write-host "More than one match:"
-			write-host -Object $matches -Separator `n
+			if ($Prioritize) {
+				Todo-Backup
+				set-content -path $file -value ($matched, $filtered)
+			} elseif ($Remove) {
+				$reply = Read-Host -Prompt "Remove? [y/N]"
+				if ( $reply -match "[yY]" ) {
+					Todo-Backup
+					set-content -path $file -value $filtered
+					write-host "Tasks removed"
+				}
+			}
+		}
+	}
+}
+
+Function Todo-Backup {
+	Process {
+		$file = Get-Todo-File
+		$bkpFile = [io.path]::ChangeExtension($file, ".bkp.txt")
+		copy-item $file $bkpFile
+	}
+}
+
+Function Todo-Undo {
+	[cmdletbinding()]
+	[Alias("tu")]
+	Param ()
+	Process {
+		$file = Get-Todo-File
+		$bkpFile = [io.path]::ChangeExtension($file, ".bkp.txt")
+
+		if (Test-Path $bkpFile) {
+			copy-item $bkpFile $file
+			write-host "Restored todo.txt"
+		} else {
+			write-host "No backup file found"
 		}
 	}
 }
@@ -148,5 +226,7 @@ Function Todo-Delete {
 	Process {
 		$file = Get-Todo-File
 		del $file
+
+		write-host "Deleted todo.txt"
 	}
 }
