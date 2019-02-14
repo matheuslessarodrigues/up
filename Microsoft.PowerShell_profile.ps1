@@ -224,9 +224,12 @@ Function Todo-Delete {
 	[Alias("tdel")]
 	Param ()
 	Process {
-		$file = Get-Todo-File
-		del $file
+		$reply = Read-Host -Prompt "Delete? [y/N]"
+		if ( $reply -match "[yY]" ) {
+			$file = Get-Todo-File
+			del $file
 
-		write-host "Deleted todo.txt"
+			write-host "Deleted todo.txt"
+		}
 	}
 }
