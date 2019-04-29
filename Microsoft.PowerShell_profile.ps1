@@ -63,6 +63,23 @@ Function Get-Todo-File {
 	}
 }
 
+Function Todo-Help {
+	[cmdletbinding()]
+	[Alias("th")]
+	Param ()
+	Process {
+		write-host "Todo Functions:"
+		write-host "> Todo-List (tl)"
+		write-host "> Todo-Add (ta)"
+		write-host "> Todo-Remove (tr)"
+		write-host "> Todo-List (tl)"
+		write-host "> Todo-Prioritize (tp)"
+		write-host "> Todo-Where (tw)"
+		write-host "> Todo-Undo (tu)"
+		write-host "> Todo-Delete (tdel)"
+	}
+}
+
 Function Todo-List {
 	[cmdletbinding()]
 	[Alias("tl")]
@@ -234,4 +251,10 @@ Function Todo-Delete {
 			write-host "Deleted todo.txt"
 		}
 	}
+}
+
+# Chocolatey profile
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
 }
