@@ -7,6 +7,10 @@ Function Find-File {
 		[string]$Pattern
 	)
 	Process {
+		if ($Pattern -notlike "*.*") {
+			$Pattern += ".*"
+		}
+
 		Get-ChildItem -Path . -Filter $Pattern -Recurse | %{$_.FullName}
 	}
 }
@@ -41,14 +45,22 @@ Function Pick {
 		$objs.Add($Obj)
 	}
 	End {
-		for ($i=0; $i -lt $objs.Count; $i++) {
-			write-host "[", $i, "]", $objs[$i]
-		}
+		if ($objs.Count -gt 1) {
+			for ($i=0; $i -lt $objs.Count; $i++) {
+				write-host "[", $i, "]", $objs[$i]
+			}
 
-		$index = read-host "Pick"
-		$obj = $objs[$index]
-		set-clipboard -Value $obj
-		write-host $obj
+			$index = read-host "Pick"
+			$obj = $objs[$index]
+			set-clipboard -Value $obj
+			write-host $obj
+		} elseif ($objs.Count -gt 0) {
+			$obj = $objs[0]
+			set-clipboard -Value $obj
+			write-host $obj
+		} else {
+			write-host "No objects to pick."
+		}
 	}
 }
 
