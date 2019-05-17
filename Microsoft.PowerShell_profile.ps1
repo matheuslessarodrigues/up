@@ -1,3 +1,18 @@
+Function Edit-Line {
+	[cmdletbinding()]
+	[Alias("edit")]
+	Param (
+		[parameter(ValueFromPipeline)]
+		[string]$Line
+	)
+	Process {
+		[System.Windows.Forms.SendKeys]::SendWait($Line)
+		$Line = read-host
+		write-host $Line
+		set-clipboard -Value $Line
+	}
+}
+
 Function Find-File {
 	[cmdletbinding()]
 	[Alias("ff")]
@@ -27,7 +42,7 @@ Function Find-String {
 		[string[]]$Patterns
 	)
 	Process {
-		Get-ChildItem -Path . -Filter $Filter -Recurse | Select-String -Pattern $Patterns | Select-Object -Unique Path | %{$_.Path}
+		get-childitem -Path . -Filter $Filter -Recurse | select-string -Pattern $Patterns | select-object -Unique Path | %{$_.Path}
 	}
 }
 
@@ -39,7 +54,7 @@ Function Pick {
 		[Object]$Obj
 	)
 	Begin {
-		$objs = New-Object System.Collections.Generic.List[System.Object]
+		$objs = new-object System.Collections.Generic.List[System.Object]
 	}
 	Process {
 		$objs.Add($Obj)
@@ -50,7 +65,7 @@ Function Pick {
 				write-host "[", $i, "]", $objs[$i]
 			}
 
-			$index = read-host "Pick"
+			$index = read-host -Prompt "Pick"
 			$obj = $objs[$index]
 			set-clipboard -Value $obj
 			write-host $obj
@@ -67,7 +82,7 @@ Function Pick {
 Function Get-Todo-File {
 	Process {
 		$file = join-path -Path $env:UserProfile -ChildPath "todo.txt"
-		if (!(Test-Path $file)) {
+		if (!(test-path $file)) {
 			new-item -path $env:UserProfile -name "todo.txt" -type "file"
 		}
 
@@ -214,7 +229,7 @@ Function Todo-Where {
 				set-content -path $file -value ($matched + $filtered)
 				write-host "Tasks prioritized"
 			} elseif ($Remove) {
-				$reply = Read-Host -Prompt "Remove? [y/N]"
+				$reply = read-host -Prompt "Remove? [y/N]"
 				if ( $reply -match "[yY]" ) {
 					Todo-Backup
 					set-content -path $file -value $filtered
@@ -241,7 +256,7 @@ Function Todo-Undo {
 		$file = Get-Todo-File
 		$bkpFile = [io.path]::ChangeExtension($file, ".bkp.txt")
 
-		if (Test-Path $bkpFile) {
+		if (test-path $bkpFile) {
 			copy-item $bkpFile $file
 			write-host "Restored todo.txt"
 		} else {
@@ -255,7 +270,7 @@ Function Todo-Delete {
 	[Alias("tdel")]
 	Param ()
 	Process {
-		$reply = Read-Host -Prompt "Delete? [y/N]"
+		$reply = read-host -Prompt "Delete? [y/N]"
 		if ( $reply -match "[yY]" ) {
 			$file = Get-Todo-File
 			del $file
@@ -267,6 +282,6 @@ Function Todo-Delete {
 
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-	Import-Module "$ChocolateyProfile"
+if (test-path($ChocolateyProfile)) {
+	import-module "$ChocolateyProfile"
 }
