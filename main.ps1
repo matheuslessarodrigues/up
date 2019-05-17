@@ -22,4 +22,4 @@ choco install steam -y
 choco install itch -y
 
 // PowerShell Profile
-((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/matheuslessarodrigues/up/master/Microsoft.PowerShell_profile.ps1')) > $Profile
+((New-Object System.Net.WebClient).DownloadString('https://matheuslessarodrigues.github.io/up/Microsoft.PowerShell_profile.ps1')) > $Profile
