@@ -8,7 +8,7 @@ Function Edit-Line {
 	Process {
 		[System.Windows.Forms.SendKeys]::SendWait($Line)
 		$Line = read-host
-		write-host $Line
+		write-output $Line
 		set-clipboard -Value $Line
 	}
 }
@@ -26,7 +26,7 @@ Function Find-File {
 			$Pattern += ".*"
 		}
 
-		Get-ChildItem -Path . -Filter $Pattern -Recurse | %{$_.FullName}
+		get-childitem -Path . -Filter $Pattern -Recurse | %{$_.FullName}
 	}
 }
 
