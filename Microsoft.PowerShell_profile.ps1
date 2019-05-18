@@ -1,3 +1,5 @@
+[void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
+
 Function Edit-Line {
 	[cmdletbinding()]
 	[Alias("edit")]
