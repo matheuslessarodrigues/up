@@ -3,7 +3,7 @@
 ## Installs
 
 ```
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/matheuslessarodrigues/up/master/main.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://matheuslessarodrigues.github.io/up/main.ps1'))
 ```
 
 - [main.ps1](/main.ps1)
