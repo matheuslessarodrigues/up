@@ -1,4 +1,5 @@
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
+Remove-Item alias:curl
 
 Function Edit-Line {
 	[cmdletbinding()]
