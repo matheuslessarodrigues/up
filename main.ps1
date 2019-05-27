@@ -1,7 +1,7 @@
 iex (curl.exe 'https://chocolatey.org/install.ps1')
 
 // Main
-choco install fzf -y
+//choco install fzf -y
 choco install firefox -y
 choco install sharex -y
 choco install windirstat -y
