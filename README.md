@@ -3,16 +3,11 @@
 ## Installs
 
 ```
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://matheuslessarodrigues.github.io/up/main.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex (curl.exe 'https://matheuslessarodrigues.github.io/up/main.ps1')
 ```
 
-- [main.ps1](/main.ps1)
-- [other.ps1](/other.ps1)
-- [webdev.ps1](/webdev.ps1)
+## Update Profiles
 
-## PowerShell Profile
-- [Microsoft.PowerShell_profile.ps1](/Microsoft.PowerShell_profile.ps1)
-
-## Firefox Profile
-- [user.js](/firefox/user.js)
-
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex (curl.exe 'https://matheuslessarodrigues.github.io/up/profiles.ps1')
+```
