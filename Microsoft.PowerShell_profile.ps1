@@ -67,6 +67,7 @@ Function Pick {
 			for ($i=0; $i -lt $objs.Count; $i++) {
 				write-host "[", $i, "]", $objs[$i]
 			}
+			write-host
 
 			$index = read-host -Prompt "Pick"
 			$obj = $objs[$index]
@@ -119,7 +120,7 @@ Function Todo-List {
 		$lines = @(get-content $file)
 
 		for ($i=0; $i -lt $lines.Length; $i++) {
-			write-host "[", $i, "]", $lines[$i]
+			write-output ("[", $i, "]", $lines[$i] -join " ") -NoEnumerate
 		}
 	}
 }
@@ -209,33 +210,37 @@ Function Todo-Where {
 		[Alias("r")]
 		[switch]$Remove,
 		[Parameter(ValueFromRemainingArguments)]
-		[string[]]$Text
+		[string[]]$Search
 	)
 	Process {
 		$file = Get-Todo-File
 		$content = @(get-content $file)
 
-		$Text = $Text -join ' '
-		$Text = "(\s+|^)" + $Text + "(\s+|$)"
+		$text = $Search -join ' '
+		#$text = "(\s+|^)" + $text + "(\s+|$)"
 
-		$filtered = @($content | where { $_ -notmatch $Text })
-		$matched = @($content | where { $_ -match $Text })
+		$filtered = @($content | where { $_ -notmatch $text })
+		$matched = @($content | where { $_ -match $text })
 
 		if ($matched.Length -eq 0) {
 			write-host "No match"
 		} else {
-			write-host "Matched tasks:"
-			write-host -Object $matched -Separator `n
+			write-output $matched
 
 			if ($Prioritize) {
 				Todo-Backup
 				set-content -path $file -value ($matched + $filtered)
+
+				write-host
 				write-host "Tasks prioritized"
 			} elseif ($Remove) {
+				write-host
 				$reply = read-host -Prompt "Remove? [y/N]"
 				if ( $reply -match "[yY]" ) {
 					Todo-Backup
 					set-content -path $file -value $filtered
+
+					write-host
 					write-host "Tasks removed"
 				}
 			}
