@@ -1,6 +1,7 @@
 $url = "https://matheuslessarodrigues.github.io/up"
 
 # PowerShell Profile
+new-item -path $profile -force
 (curl.exe -s "$url/Microsoft.PowerShell_profile.ps1" | out-string) > $Profile
 
 # Firefox Profile
