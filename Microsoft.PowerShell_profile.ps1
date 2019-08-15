@@ -1,6 +1,4 @@
-[void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-Remove-Item alias:curl
 
 Function Edit-Line {
 	[cmdletbinding()]
