@@ -1,11 +1,13 @@
 iex (curl.exe -s 'https://chocolatey.org/install.ps1' | out-string)
 
 # Main
-choco install fzf -y
 choco install firefox -y
+choco install spotify -y
+
+choco install fzf -y
+choco install ripgrep -y
 choco install sharex -y
 choco install windirstat -y
-choco install spotify -y
 
 # Communication
 choco install discord -y
