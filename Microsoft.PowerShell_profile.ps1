@@ -1,5 +1,7 @@
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
+Set-Alias -Name nv -Value nvim-qt.exe -Force
+
 Function Edit-Line {
 	[cmdletbinding()]
 	[Alias("edit")]
