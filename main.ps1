@@ -1,7 +1,7 @@
 iex (curl.exe -s 'https://chocolatey.org/install.ps1' | out-string)
 
 # Main
-#choco install fzf -y
+choco install fzf -y
 choco install firefox -y
 choco install sharex -y
 choco install windirstat -y
@@ -21,10 +21,10 @@ choco install dotnetcore-sdk -y
 choco install steam -y
 choco install itch -y
 
-# Update Profiles
-iex (curl.exe -s 'https://matheuslessarodrigues.github.io/up/profiles.ps1' | out-string)
-
 # Registry
 
 ## map capslock to esc
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Keyboard Layout" /v "Scancode Map" /t REG_BINARY /d 00000000000000000200000001003a0000000000
+
+# Update Profiles
+iex (curl.exe -s 'https://matheuslessarodrigues.github.io/up/profiles.ps1' | out-string)
