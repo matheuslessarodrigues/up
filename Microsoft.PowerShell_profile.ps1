@@ -1,6 +1,6 @@
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
-Set-Alias -Name nv -Value nvim-qt.exe -Force
+Set-Alias -Name vim -Value nvim-qt.exe -Force
 
 $env:FZF_DEFAULT_COMMAND="rg --files ."
 
