@@ -3,6 +3,7 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-Alias -Name vim -Value nvim-qt.exe -Force
 
 $env:FZF_DEFAULT_COMMAND="rg --files ."
+$env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 
 Function Edit-Line {
 	[cmdletbinding()]
@@ -296,3 +297,4 @@ $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (test-path($ChocolateyProfile)) {
 	import-module "$ChocolateyProfile"
 }
+
