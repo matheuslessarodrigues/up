@@ -2,7 +2,7 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 Set-Alias -Name vim -Value nvim-qt.exe -Force
 
-$env:FZF_DEFAULT_COMMAND="rg --files ."
+$env:FZF_DEFAULT_COMMAND='rg --files . --glob "!*.meta"'
 $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 
 function clip {
