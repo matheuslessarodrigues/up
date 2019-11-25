@@ -15,7 +15,6 @@ choco install discord -y
 # Dev
 choco install git --params "/GitOnlyOnPath /NoShellIntegration" -y
 choco install hg -y
-choco install putty -y
 choco install vscode --params "/NoContextMenuFile /NoContextMenuFolders" -y
 choco install dotnetcore-sdk -y
 
