@@ -3,6 +3,7 @@ iex (curl.exe -s 'https://chocolatey.org/install.ps1' | out-string)
 # Main
 choco install firefox -y
 choco install spotify -y
+choco install powershell-core -y
 
 choco install fzf -y
 choco install ripgrep -y
