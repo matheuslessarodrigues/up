@@ -1,0 +1,11 @@
+Host github.com
+User matheuslessarodrigues
+IdentityFile ~/.ssh/id_rsa_github
+
+Host bitbucket.org
+User matheuslessarodrigues
+IdentityFile ~/.ssh/id_rsa_bitbucket
+
+Host gitlab.com
+User matheuslessarodrigues
+IdentityFile ~/.ssh/id_rsa_gitlab
