@@ -3,7 +3,6 @@ iex (curl.exe -s 'https://chocolatey.org/install.ps1' | out-string)
 # Main
 choco install firefox -y
 choco install spotify -y
-choco install telegram -y
 choco install powershell-core -y
 
 choco install fzf -y
@@ -12,6 +11,7 @@ choco install sharex -y
 choco install windirstat -y
 
 # Communication
+choco install telegram -y
 choco install discord -y
 
 # Dev
@@ -20,7 +20,9 @@ choco install hg -y
 choco install vscode --params "/NoContextMenuFile /NoContextMenuFolders" -y
 
 choco install rustup.install -y
+choco install visualstudio2019buildtools -y
 choco install dotnetcore-sdk -y
+choco install unity-hub -y
 
 # Games
 choco install steam -y
