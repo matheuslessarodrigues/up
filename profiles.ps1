@@ -1,11 +1,11 @@
-$url = "https://matheuslessarodrigues.github.io/up"
+$url = "https://matheuslessarodrigues.github.io/up/profiles"
 
 # PowerShell Profile
-$powershellProfile = (curl.exe -s "$url/Microsoft.PowerShell_profile.ps1" | out-string)
+$powershellProfile = (curl.exe -s "$url/powershell.ps1" | out-string)
 set-content -path $profile -value $powershellProfile
 
 # Firefox Profile
-$firefoxProfile = (curl.exe -s "$url/firefox/user.js" | out-string)
+$firefoxProfile = (curl.exe -s "$url/firefox.js" | out-string)
 get-childitem -path "$env:APPDATA/Mozilla/Firefox/Profiles" -Directory | %{$path = join-path $_.FullName "user.js"; set-content -path $path -value $firefoxProfile;}
 
 # Update Wallpaper
