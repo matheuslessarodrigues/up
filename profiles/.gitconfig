@@ -1,0 +1,18 @@
+[user]
+	name = Matheus Lessa
+	email = matheus@fastmail.com
+
+[gui]
+
+[alias]
+	lg = log --all --decorate --oneline --graph
+
+[merge]
+	tool = vscode
+
+[diff]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = "code --wait "
+[difftool "vscode"]
+	cmd = "code --wait --diff  "
