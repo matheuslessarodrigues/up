@@ -20,7 +20,7 @@ choco install hg -y
 choco install vscode --params "/NoContextMenuFile /NoContextMenuFolders" -y
 
 choco install rustup.install -y
-choco install visualstudio2019buildtools -y
+choco install visualstudio2019-workload-vctools --package-parameters "--includeRecommended"
 choco install dotnetcore-sdk -y
 choco install unity-hub -y
 
