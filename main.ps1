@@ -18,6 +18,8 @@ choco install discord -y
 choco install git --params "/GitOnlyOnPath /NoShellIntegration" -y
 choco install hg -y
 choco install vscode --params "/NoContextMenuFile /NoContextMenuFolders" -y
+
+choco install rustup.install -y
 choco install dotnetcore-sdk -y
 
 # Games
