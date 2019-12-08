@@ -3,6 +3,7 @@ iex (curl.exe -s 'https://chocolatey.org/install.ps1' | out-string)
 # Main
 choco install firefox -y
 choco install spotify -y
+choco install telegram -y
 choco install powershell-core -y
 
 choco install fzf -y
@@ -22,6 +23,9 @@ choco install dotnetcore-sdk -y
 # Games
 choco install steam -y
 choco install itch -y
+
+# Audio
+choco install reaper -y
 
 # Registry
 
