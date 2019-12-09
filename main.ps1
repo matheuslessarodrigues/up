@@ -32,9 +32,11 @@ choco install itch -y
 choco install reaper -y
 
 # Registry
-
 ## map capslock to esc
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Keyboard Layout" /v "Scancode Map" /t REG_BINARY /d 00000000000000000200000001003a0000000000
 
 ## remove vscode explorer integration
 reg delete HKEY_CLASSES_ROOT\*\shell\VSCode /f
+
+# Tasks
+schtasks /create /tn "UpdateWallpaper" /sc onlogon /delay 0000:30 /rl highest /ru system /tr "powershell.exe -file '$home\update-wallpaper.ps1'"
