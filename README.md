@@ -3,13 +3,13 @@
 ## Install main stuff
 
 ```
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex (curl.exe -s 'https://matheuslessarodrigues.github.io/up/main.ps1' | out-string)
+{% include_relative main.txt %}
 ```
 
 ## Just update profiles
 
 ```
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex (curl.exe -s 'https://matheuslessarodrigues.github.io/up/profiles.ps1' | out-string)
+{% include_relative profiles.txt %}
 ```
 
 ## Files
