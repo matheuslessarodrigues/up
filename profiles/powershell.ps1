@@ -27,6 +27,11 @@ function clip {
 	}
 }
 
+function download-omnisharp-config {
+	$url = "https://matheuslessarodrigues.github.io/up/profiles"
+	set-content -path "omnisharp.json" -value (curl.exe -s "$url/omnisharp.json" | out-string)
+}
+
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (test-path($ChocolateyProfile)) {
