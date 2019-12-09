@@ -1,14 +1,21 @@
 $url = "https://matheuslessarodrigues.github.io/up/profiles"
 
 # PowerShell Profile
-$powershellProfile = (curl.exe -s "$url/powershell.ps1" | out-string)
-set-content -path $profile -value $powershellProfile
+set-content -path $profile -value (curl.exe -s "$url/powershell.ps1" | out-string)
 
 # Firefox Profile
 $firefoxProfile = (curl.exe -s "$url/firefox.js" | out-string)
 get-childitem -path "$env:APPDATA/Mozilla/Firefox/Profiles" -Directory | %{$path = join-path $_.FullName "user.js"; set-content -path $path -value $firefoxProfile;}
 
+# SSH Profile
+mkdir "$home\.ssh" -force
+set-content -path "$home\.ssh\config" -value (curl.exe -s "$url/sshconfig" | out-string)
+
+# Git Profile
+set-content -path "$home\.gitconfig" -value (curl.exe -s "$url/gitconfig" | out-string)
+
+# Mercurial Profile
+set-content -path "$home\mercurial.ini" -value (curl.exe -s "$url/mercurial.ini" | out-string)
+
 # Update Wallpaper
-$updateWallpaper = (curl.exe -s "$url/update-wallpaper.bat" | out-string)
-set-content -path "$env:appdata\Microsoft\Windows\Start Menu\Programs\Startup\update-wallpaper.bat" -value $updateWallpaper
-."$env:appdata\Microsoft\Windows\Start Menu\Programs\Startup\update-wallpaper.bat"
+set-content -path "$env:appdata\Microsoft\Windows\Start Menu\Programs\Startup\update-wallpaper.bat" -value (curl.exe -s "$url/update-wallpaper.bat" | out-string)
