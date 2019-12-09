@@ -40,4 +40,4 @@ reg delete HKEY_CLASSES_ROOT\*\shell\VSCode /f
 
 # Tasks
 schtasks /delete /tn "UpdateWallpaper" /f
-schtasks /create /tn "UpdateWallpaper" /sc onlogon /delay 0000:30 /rl highest /ru system /tr "powershell.exe -file '$home\update-wallpaper.ps1'"
+schtasks /create /tn "UpdateWallpaper" /sc onlogon /delay 0000:30 /rl highest /ru system /tr "powershell.exe -File $home\update-wallpaper.ps1 -ExecutionPolicy Bypass"
