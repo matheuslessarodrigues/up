@@ -18,4 +18,4 @@ set-content -path "$home\.gitconfig" -value (curl.exe -s "$url/gitconfig" | out-
 set-content -path "$home\mercurial.ini" -value (curl.exe -s "$url/mercurial.ini" | out-string)
 
 # Update Wallpaper
-set-content -path "$env:appdata\Microsoft\Windows\Start Menu\Programs\Startup\update-wallpaper.bat" -value (curl.exe -s "$url/update-wallpaper.bat" | out-string)
+set-content -path "$home\update-wallpaper.ps1" -value (curl.exe -s "$url/update-wallpaper.ps1" | out-string)
