@@ -8,8 +8,9 @@ $spotlightFolder="$env:LOCALAPPDATA\Packages\Microsoft.Windows.ContentDeliveryMa
 
 get-childitem $spotlightFolder | foreach-object {
 	$img=New-Object -ComObject Wia.ImageFile
-	$img.LoadFile($_)
+	$path=$_.FullName
+	$img.LoadFile($path)
 	if(($img.Width -gt $img.Height) -and ($img.Height -gt 720)) {
-		copy-item $_ -destination "$wallpaperLocation\$($_.BaseName).jpg"
+		copy-item $path -destination "$wallpaperLocation\$($_.BaseName).jpg"
 	}
 }
