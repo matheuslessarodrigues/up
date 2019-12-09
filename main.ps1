@@ -39,5 +39,10 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Keyboard Layout" /v "Scancode Map
 reg delete HKEY_CLASSES_ROOT\*\shell\VSCode /f
 
 # Tasks
-# schtasks /delete /tn "UpdateWallpaper" /f
-# schtasks /create /tn "UpdateWallpaper" /sc onlogon /delay 0000:30 /rl highest /ru system /tr "powershell.exe -File $home\update-wallpaper.ps1 -ExecutionPolicy Bypass"
+## update wallpaper
+$action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-WindowStyle Hidden -File $home\update-wallpaper.ps1"
+$trigger = New-ScheduledTaskTrigger -AtLogon
+$principal = New-ScheduledTaskPrincipal -UserID "$env:USERDOMAIN\$env:USERNAME" -LogonType ServiceAccount -RunLevel Highest
+$settings = New-ScheduledTaskSettingsSet
+$task = New-ScheduledTask -Action $action -Principal $principal -Trigger $trigger -Settings $settings
+Register-ScheduledTask UpdateWallpaper -InputObject $task -Force
