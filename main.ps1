@@ -5,10 +5,12 @@ choco install firefox -y
 choco install spotify -y
 choco install powershell-core -y
 
+# Tools
 choco install fzf -y
 choco install ripgrep -y
 choco install sharex -y
 choco install windirstat -y
+choco install 7-taskbar-tweaker -y
 
 # Communication
 choco install telegram -y
