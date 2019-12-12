@@ -1,12 +1,6 @@
 {
 	"FormattingOptions": {
-		"SpaceWithinMethodDeclarationParenthesis": true,
-		"SpaceWithinMethodCallParentheses": true,
-		"SpaceAfterControlFlowStatementKeyword": false,
-		"SpaceWithinExpressionParentheses": true,
-		"SpaceWithinCastParentheses": true,
-		"SpaceWithinOtherParentheses": true,
-		"SpaceAfterCast": true,
-		"IndentSwitchSection": false
+		"IndentSwitchSection": false,
+		"UseTabs": true
 	}
 }
