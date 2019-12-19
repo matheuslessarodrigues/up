@@ -35,7 +35,9 @@ choco install reaper -y
 # Registry
 ## map capslock to esc
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Keyboard Layout" /v "Scancode Map" /t REG_BINARY /d 00000000000000000200000001003a0000000000
-
+## remove bing search
+reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabled /t REG_DWORD /d 0 /f
+reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search /v CortanaConsent /t REG_DWORD /d 0 /f
 ## remove vscode explorer integration
 reg delete HKEY_CLASSES_ROOT\*\shell\VSCode /f
 
