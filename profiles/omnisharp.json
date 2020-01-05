@@ -2,5 +2,8 @@
 	"FormattingOptions": {
 		"IndentSwitchSection": false,
 		"UseTabs": true
+	},
+	"MSBuild": {
+		"UseLegacySdkResolver": true
 	}
 }
