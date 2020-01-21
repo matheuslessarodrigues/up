@@ -45,7 +45,7 @@ reg delete HKEY_CLASSES_ROOT\*\shell\VSCode /f
 ## update wallpaper
 $action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-WindowStyle Hidden -File $home\update-wallpaper.ps1"
 $trigger = New-ScheduledTaskTrigger -AtLogon
-$principal = New-ScheduledTaskPrincipal -UserID "$env:USERDOMAIN\$env:USERNAME" -LogonType ServiceAccount -RunLevel Highest
+$principal = New-ScheduledTaskPrincipal -UserID "$env:USERDOMAIN\$env:USERNAME" -LogonType S4U -RunLevel Highest
 $settings = New-ScheduledTaskSettingsSet
 $task = New-ScheduledTask -Action $action -Principal $principal -Trigger $trigger -Settings $settings
 Register-ScheduledTask UpdateWallpaper -InputObject $task -Force
