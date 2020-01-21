@@ -9,7 +9,7 @@ Command
 
 Get it from cli
 ```
-curl.exe https://matheuslessarodrigues.github.io/up/main.txt
+curl.exe https://matheuslessarodrigues.github.io/up/main.txt | clip
 ```
 
 ## Just update profiles
@@ -21,5 +21,5 @@ Command
 
 Get it from cli
 ```
-curl.exe https://matheuslessarodrigues.github.io/up/profiles.txt
+curl.exe https://matheuslessarodrigues.github.io/up/profiles.txt | clip
 ```
