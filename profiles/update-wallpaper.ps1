@@ -1,3 +1,5 @@
+#https://github.com/timothymctim/Bing-wallpapers
+
 $wallpaperLocation="$home\Pictures\SpotlightWallpapers"
 if(test-path $wallpaperLocation) {
 	remove-item -recurse -force $wallpaperLocation
