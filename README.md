@@ -7,7 +7,7 @@ Command
 {% include_relative main.txt %}
 ```
 
-Get it from cli
+Get the command from cli
 ```
 curl.exe https://matheuslessarodrigues.github.io/up/main.txt | clip
 ```
@@ -19,7 +19,19 @@ Command
 {% include_relative profiles.txt %}
 ```
 
-Get it from cli
+Get the command from cli
 ```
 curl.exe https://matheuslessarodrigues.github.io/up/profiles.txt | clip
+```
+
+## Install rust utilities
+
+Command
+```
+{% include_relative rust.txt %}
+```
+
+Get the command from cli
+```
+curl.exe https://matheuslessarodrigues.github.io/up/rust.txt | clip
 ```
