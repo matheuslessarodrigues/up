@@ -1,7 +1,8 @@
 {
 	"FormattingOptions": {
+		"UseTabs": true,
 		"IndentSwitchSection": false,
-		"UseTabs": true
+		"NewLinesForBracesInLambdaExpressionBody": false
 	},
 	"MSBuild": {
 		"UseLegacySdkResolver": true
