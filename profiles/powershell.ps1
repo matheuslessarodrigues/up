@@ -1,4 +1,11 @@
+Set-PSReadlineKeyHandler -Key Ctrl+m -Function AcceptLine
+Set-PSReadlineKeyHandler -Key Ctrl+w -Function BackwardKillWord
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadlineKeyHandler -Key Ctrl+Enter -ScriptBlock {
+	fd
+	[Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+	cls
+}
 
 Set-Alias -Name vim -Value nvim-qt.exe -Force
 Set-Alias -Name which -Value where.exe -Force
@@ -30,15 +37,33 @@ function clip {
 function fd {
 	while ($true)
 	{
-		$prompt = (pwd).Path + "\"
-		$dirs = "..", (ls -directory -path . | % {$_.Name})
-		$dir = $dirs | fzf --layout=reverse --prompt=$prompt
+		$currentPath = (pwd).Path + "\"
+		$dirs = ".", (ls -directory -path . | % {$_.Name})
+		$output = $dirs | fzf --layout=reverse --prompt=$currentPath --expect=alt-up --no-sort --preview="rg --max-depth 1 --files {} --color always"
 
-		if([string]::IsNullOrWhiteSpace($dir)) {
+		if([string]::IsNullOrWhiteSpace($output)) {
+			break
+		}
+
+		$command = $output[0]
+		$dir = $output[1]
+
+		if($command -eq "alt-up") {
+			cd ..
+		} elseif($dir -eq ".") {
 			break
 		} else {
 			cd $dir
 		}
+	}
+}
+
+function ff {
+	$currentPath = (pwd).Path + "\"
+	$file = fzf --layout=reverse --prompt=$currentPath --no-sort --filepath-word --preview="rg . {} --no-line-number --max-count 1 --after-context 20 --color always"
+	if($file) {
+		write-host $file
+		$file | clip
 	}
 }
 
