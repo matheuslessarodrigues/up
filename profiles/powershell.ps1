@@ -4,7 +4,7 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadlineKeyHandler -Key Ctrl+Enter -ScriptBlock {
 	fd
 	[Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
-	cls
+	clear
 }
 
 Set-Alias -Name vim -Value nvim-qt.exe -Force
@@ -38,15 +38,16 @@ function fd {
 	while ($true)
 	{
 		$currentPath = (pwd).Path + "\"
-		$dirs = ".", (ls -directory -path . | % {$_.Name})
-		$output = $dirs | fzf --layout=reverse --prompt=$currentPath --expect=alt-up --no-sort --preview="rg --max-depth 1 --files {} --color always"
+		$dirs = ".", (ls -directory -path . | %{$_.Name})
+		$output = $dirs | fzf --layout=reverse --prompt=$currentPath --expect=alt-up --print-query --no-sort --preview="rg --max-depth 1 --files {} --color always"
 
 		if([string]::IsNullOrWhiteSpace($output)) {
 			break
 		}
 
-		$command = $output[0]
-		$dir = $output[1]
+		$query = $output[0]
+		$command = $output[1]
+		$dir = $output[2]
 
 		if($command -eq "alt-up") {
 			cd ..
