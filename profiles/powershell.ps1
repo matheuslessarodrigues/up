@@ -27,6 +27,21 @@ function clip {
 	}
 }
 
+function fd {
+	while ($true)
+	{
+		$prompt = (pwd).Path + "\"
+		$dirs = "..", (ls -directory -path . | % {$_.Name})
+		$dir = $dirs | fzf --layout=reverse --prompt=$prompt
+
+		if([string]::IsNullOrWhiteSpace($dir)) {
+			break
+		} else {
+			cd $dir
+		}
+	}
+}
+
 function download-omnisharp-config {
 	$url = "https://matheuslessarodrigues.github.io/up/profiles"
 	set-content -path "omnisharp.json" -value (curl.exe -s "$url/omnisharp.json" | out-string)
