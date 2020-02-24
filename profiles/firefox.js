@@ -26,6 +26,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
 
 // ui
+user_pref("ui.key.menuAccessKeyFocuses", false);
 user_pref("reader.color_scheme", "dark");
 user_pref("lightweightThemes.selectedThemeID", "firefox-compact-dark@mozilla.org");
 user_pref("devtools.theme", "dark");
