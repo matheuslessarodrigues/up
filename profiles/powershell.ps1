@@ -38,7 +38,7 @@ function fd {
 	while ($true)
 	{
 		$currentPath = (pwd).Path + "\"
-		$dirs = ".", (ls -directory -path . | %{$_.Name})
+		$dirs = ".", (ls -directory -path . -name)
 		$output = $dirs | fzf --layout=reverse --prompt=$currentPath --expect=alt-up --print-query --no-sort --preview="rg --max-depth 1 --files {} --color always"
 
 		if([string]::IsNullOrWhiteSpace($output)) {
@@ -66,10 +66,6 @@ function ff {
 		write-host $file
 		$file | clip
 	}
-}
-
-function update-profiles {
-	Set-ExecutionPolicy Bypass -Scope Process -Force; iex (curl.exe -s 'https://matheuslessarodrigues.github.io/up/profiles.ps1' | out-string)
 }
 
 function download-omnisharp-config {
