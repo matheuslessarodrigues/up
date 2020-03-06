@@ -8,6 +8,8 @@ $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 Set-Alias -Name vim -Value nvim-qt.exe -Force
 Set-Alias -Name which -Value where.exe -Force
 
+$alacritty_config = "$env:APPDATA/alacritty/alacritty.yml"
+
 function clip {
 	param(
 		[parameter(position=0,mandatory=$true,ValueFromPipeline=$true)]$text
