@@ -69,3 +69,7 @@ function update-profiles {
 	Set-ExecutionPolicy Bypass -Scope Process -Force; iex (curl.exe -s 'https://matheuslessarodrigues.github.io/up/update-profiles.ps1' | out-string)
 }
 
+function download-omnisharp-config {
+	$url = "https://matheuslessarodrigues.github.io/up/profiles"
+	set-content -path "omnisharp.json" -value (curl.exe -s "$url/omnisharp.json" | out-string)
+}
