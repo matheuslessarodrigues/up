@@ -10,7 +10,7 @@ tabspaces: 4
 window:
   dimensions:
    columns: 140
-   lines: 40
+   lines: 50
 
 colors:
   # Default colors
