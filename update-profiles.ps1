@@ -1,10 +1,13 @@
 $url = "https://matheuslessarodrigues.github.io/up/profiles"
 
+# Colortool scheme
+set-content -path "$home\colorscheme.itermcolors" -value (curl.exe -s "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors" | out-string)
+
 # PowerShell Profile
 set-content -path $profile -value (curl.exe -s "$url/powershell.ps1" | out-string)
 
 # Alacritty Profile
-set-content -path "$env:APPDATA/alacritty/alacritty.yml" -value (curl.exe -s "$url/alacritty.yml" | out-string)
+# set-content -path "$env:APPDATA/alacritty/alacritty.yml" -value (curl.exe -s "$url/alacritty.yml" | out-string)
 
 # Firefox Profile
 $firefoxProfile = (curl.exe -s "$url/firefox.js" | out-string)
