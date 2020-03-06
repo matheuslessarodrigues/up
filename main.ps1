@@ -3,7 +3,9 @@ iex (curl.exe -s 'https://chocolatey.org/install.ps1' | out-string)
 # Main
 choco install firefox -y
 choco install spotify -y
-choco install powershell-core -y
+choco install alacritty -y
+
+New-Item -ItemType SymbolicLink -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell" -Name "Windows PowerShell.lnk" -Value "$env:ChocolateyInstall\bin\alacritty.exe" -Force
 
 # Tools
 choco install fzf -y
