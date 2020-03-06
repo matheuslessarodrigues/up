@@ -5,6 +5,30 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 $env:FZF_DEFAULT_COMMAND='rg --files . --glob "!*.meta"'
 $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 
+Set-Alias -Name vim -Value nvim-qt.exe -Force
+Set-Alias -Name which -Value where.exe -Force
+
+function clip {
+	param(
+		[parameter(position=0,mandatory=$true,ValueFromPipeline=$true)]$text
+	)
+	begin{
+		$data = [System.Text.StringBuilder]::new()
+	}
+
+	process{
+		if ($text) {
+			[void]$data.AppendLine($text)
+		}
+	}
+
+	end{
+		if ($data) {
+			$data.ToString().TrimEnd([Environment]::NewLine) + [Convert]::ToChar(0) | clip.exe
+		}
+	}
+}
+
 function fd {
 	while ($true)
 	{
@@ -41,9 +65,4 @@ function ff {
 
 function update-profiles {
 	Set-ExecutionPolicy Bypass -Scope Process -Force; iex (curl.exe -s 'https://matheuslessarodrigues.github.io/up/update-profiles.ps1' | out-string)
-}
-
-function download-omnisharp-config {
-	$url = "https://matheuslessarodrigues.github.io/up/profiles"
-	set-content -path "omnisharp.json" -value (curl.exe -s "$url/omnisharp.json" | out-string)
 }
