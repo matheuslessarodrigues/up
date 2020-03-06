@@ -3,6 +3,9 @@ $url = "https://matheuslessarodrigues.github.io/up/profiles"
 # PowerShell Profile
 set-content -path $profile -value (curl.exe -s "$url/powershell.ps1" | out-string)
 
+# Alacritty Profile
+set-content -path "env:APPDATA/alacritty/alacritty.yml" -value (curl.exe -s "$url/alacritty.yml" | out-string)
+
 # Firefox Profile
 $firefoxProfile = (curl.exe -s "$url/firefox.js" | out-string)
 get-childitem -path "$env:APPDATA/Mozilla/Firefox/Profiles" -Directory | %{$path = join-path $_.FullName "user.js"; set-content -path $path -value $firefoxProfile;}
