@@ -3,6 +3,7 @@ shell:
 
 env:
   TERM: ''
+  FZF_DEFAULT_COMMAND: rg --files . --glob "!*.meta"
 
 tabspaces: 4
 
