@@ -1,38 +1,9 @@
 Set-PSReadlineKeyHandler -Key Ctrl+m -Function AcceptLine
 Set-PSReadlineKeyHandler -Key Ctrl+w -Function BackwardKillWord
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-Set-PSReadlineKeyHandler -Key Ctrl+Enter -ScriptBlock {
-	fd
-	[Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
-	clear
-}
-
-Set-Alias -Name vim -Value nvim-qt.exe -Force
-Set-Alias -Name which -Value where.exe -Force
 
 $env:FZF_DEFAULT_COMMAND='rg --files . --glob "!*.meta"'
 $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
-
-function clip {
-	param(
-		[parameter(position=0,mandatory=$true,ValueFromPipeline=$true)]$text
-	)
-	begin{
-		$data = [System.Text.StringBuilder]::new()
-	}
-
-	process{
-		if ($text) {
-			[void]$data.AppendLine($text)
-		}
-	}
-
-	end{
-		if ($data) {
-			$data.ToString().TrimEnd([Environment]::NewLine) + [Convert]::ToChar(0) | clip.exe
-		}
-	}
-}
 
 function fd {
 	while ($true)
@@ -75,10 +46,4 @@ function update-profiles {
 function download-omnisharp-config {
 	$url = "https://matheuslessarodrigues.github.io/up/profiles"
 	set-content -path "omnisharp.json" -value (curl.exe -s "$url/omnisharp.json" | out-string)
-}
-
-# Chocolatey profile
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (test-path($ChocolateyProfile)) {
-	import-module "$ChocolateyProfile"
 }
