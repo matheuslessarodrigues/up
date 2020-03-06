@@ -51,3 +51,10 @@ $principal = New-ScheduledTaskPrincipal -UserID "$env:USERDOMAIN\$env:USERNAME" 
 $settings = New-ScheduledTaskSettingsSet
 $task = New-ScheduledTask -Action $action -Principal $principal -Trigger $trigger -Settings $settings
 Register-ScheduledTask UpdateWallpaper -InputObject $task -Force
+
+# Print Command to update profiles
+echo ""
+echo ""
+echo "UPDATE PROFILES"
+echo ""
+echo "Set-ExecutionPolicy Bypass -Scope Process -Force; iex (curl.exe -s 'https://matheuslessarodrigues.github.io/up/profiles.ps1' | out-string)"
