@@ -1,2 +1,2 @@
-cargo install nu
+# cargo install nu
 cargo install verco
