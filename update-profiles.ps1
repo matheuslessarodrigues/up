@@ -4,7 +4,7 @@ $url = "https://matheuslessarodrigues.github.io/up/profiles"
 set-content -path $profile -value (curl.exe -s "$url/powershell.ps1" | out-string)
 
 # Alacritty Profile
-set-content -path "env:APPDATA/alacritty/alacritty.yml" -value (curl.exe -s "$url/alacritty.yml" | out-string)
+set-content -path "$env:APPDATA/alacritty/alacritty.yml" -value (curl.exe -s "$url/alacritty.yml" | out-string)
 
 # Firefox Profile
 $firefoxProfile = (curl.exe -s "$url/firefox.js" | out-string)
