@@ -4,6 +4,7 @@ iex (curl.exe -s 'https://chocolatey.org/install.ps1' | out-string)
 choco install firefox -y
 choco install spotify -y
 choco install alacritty -y
+choco install powershell-core -y
 
 $alacritty_shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
 $shell = New-Object -ComObject WScript.Shell
