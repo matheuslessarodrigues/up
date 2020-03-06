@@ -3,14 +3,16 @@ iex (curl.exe -s 'https://chocolatey.org/install.ps1' | out-string)
 # Main
 choco install firefox -y
 choco install spotify -y
-choco install alacritty -y
 choco install powershell-core -y
+choco install colortool -y
+# choco install alacritty -y
+# choco install microsoft-windows-terminal -y
 
-$alacritty_shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
+$shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
 $shell = New-Object -ComObject WScript.Shell
-$alacritty_shortcut = $shell.CreateShortcut($alacritty_shortcut_path)
-$alacritty_shortcut.TargetPath = "$env:ChocolateyInstall\bin\alacritty.exe"
-$alacritty_shortcut.Save()
+$pwsh_shortcut = $shell.CreateShortcut($shortcut_path)
+$pwsh_shortcut.TargetPath = where.exe pwsh.exe
+$pwsh_shortcut.Save()
 
 New-Item -ItemType SymbolicLink -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell" -Name "Windows PowerShell.lnk" -Value "$env:ChocolateyInstall\bin\alacritty.exe" -Force
 
