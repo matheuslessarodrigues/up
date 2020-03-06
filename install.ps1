@@ -5,6 +5,12 @@ choco install firefox -y
 choco install spotify -y
 choco install alacritty -y
 
+$alacritty_shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
+$shell = New-Object -ComObject WScript.Shell
+$alacritty_shortcut = $shell.CreateShortcut($alacritty_shortcut_path)
+$alacritty_shortcut.TargetPath = "$env:ChocolateyInstall\bin\alacritty.exe"
+$alacritty_shortcut.Save()
+
 New-Item -ItemType SymbolicLink -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell" -Name "Windows PowerShell.lnk" -Value "$env:ChocolateyInstall\bin\alacritty.exe" -Force
 
 # Tools
