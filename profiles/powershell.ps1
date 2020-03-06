@@ -40,7 +40,7 @@ function ff {
 }
 
 function update-profiles {
-	Set-ExecutionPolicy Bypass -Scope Process -Force; iex (curl.exe -s 'https://matheuslessarodrigues.github.io/up/profiles.ps1' | out-string)
+	Set-ExecutionPolicy Bypass -Scope Process -Force; iex (curl.exe -s 'https://matheuslessarodrigues.github.io/up/update-profiles.ps1' | out-string)
 }
 
 function download-omnisharp-config {
