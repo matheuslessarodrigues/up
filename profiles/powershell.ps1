@@ -36,7 +36,7 @@ function fd {
 	{
 		$currentPath = (pwd).Path + "\"
 		$dirs = ".", (ls -directory -path . -name)
-		$output = $dirs | fzf --layout=reverse --prompt=$currentPath --expect=alt-up --print-query --no-sort --preview="rg --max-depth 1 --files {} --color always"
+		$output = $dirs | fzf --layout=reverse --prompt=$currentPath --expect=';' --print-query --no-sort --preview="rg --max-depth 1 --files {} --color always"
 
 		if([string]::IsNullOrWhiteSpace($output)) {
 			break
@@ -46,7 +46,7 @@ function fd {
 		$command = $output[1]
 		$dir = $output[2]
 
-		if($command -eq "alt-up") {
+		if($command -eq ";") {
 			cd ..
 		} elseif($dir -eq ".") {
 			break
@@ -68,3 +68,4 @@ function ff {
 function update-profiles {
 	Set-ExecutionPolicy Bypass -Scope Process -Force; iex (curl.exe -s 'https://matheuslessarodrigues.github.io/up/update-profiles.ps1' | out-string)
 }
+
