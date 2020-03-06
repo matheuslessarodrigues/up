@@ -1,5 +1,6 @@
 shell:
-  program: nu
+  # program: nu
+  program: pwsh
 
 env:
   TERM: ''
