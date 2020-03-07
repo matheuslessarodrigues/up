@@ -13,7 +13,7 @@ scoop install vlc
 $shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
 $shell = New-Object -ComObject WScript.Shell
 $pwsh_shortcut = $shell.CreateShortcut($shortcut_path)
-$pwsh_shortcut.TargetPath = where.exe pwsh.exe
+$pwsh_shortcut.TargetPath = scoop which pwsh
 $pwsh_shortcut.Save()
 
 # Tools
