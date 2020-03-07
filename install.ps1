@@ -1,12 +1,14 @@
-iex (curl.exe -s 'https://chocolatey.org/install.ps1' | out-string)
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser; iwr -useb get.scoop.sh | iex
+scoop install git
+scoop bucket add extras
 
 # Main
-choco install firefox -y
-choco install spotify -y
-choco install powershell-core -y
-choco install colortool -y
-# choco install alacritty -y
-# choco install microsoft-windows-terminal -y
+scoop install firefox
+scoop install pwsh
+scoop install colortool
+# scoop install alacritty
+# scoop install spotify
+scoop install vlc
 
 $shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
 $shell = New-Object -ComObject WScript.Shell
@@ -14,34 +16,27 @@ $pwsh_shortcut = $shell.CreateShortcut($shortcut_path)
 $pwsh_shortcut.TargetPath = where.exe pwsh.exe
 $pwsh_shortcut.Save()
 
-New-Item -ItemType SymbolicLink -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell" -Name "Windows PowerShell.lnk" -Value "$env:ChocolateyInstall\bin\alacritty.exe" -Force
-
 # Tools
-choco install fzf -y
-choco install ripgrep -y
-choco install sharex -y
-choco install windirstat -y
+scoop install fzf
+scoop install ripgrep
+scoop install sharex
+scoop install windirstat
 
 # Communication
-choco install telegram -y
-choco install discord -y
+scoop install telegram
+scoop install discord
 
 # Dev
-choco install git --params "/GitOnlyOnPath /NoShellIntegration" -y
-choco install hg -y
-choco install vscode --params "/NoContextMenuFile /NoContextMenuFolders" -y
+scoop install mercurial
+scoop install vscode-portable
 
-choco install rustup.install -y
+scoop install dotnet-sdk
+scoop install rustup-msvc
+
 choco install visualstudio2019-workload-vctools --package-parameters "--includeRecommended"
-choco install dotnetcore-sdk -y
-choco install unity-hub -y
-
-# Games
-choco install steam -y
-choco install itch -y
 
 # Audio
-choco install reaper -y
+scoop install reaper
 
 # Registry
 ## map capslock to esc
