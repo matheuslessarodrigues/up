@@ -1,13 +1,14 @@
 Set-ExecutionPolicy RemoteSigned -scope CurrentUser; iwr -useb get.scoop.sh | iex
 scoop install git
 scoop bucket add extras
+scoop bucket add matheus-bucket https://github.com/matheuslessarodrigues/up.git
 
 # Main
 scoop install firefox
 scoop install pwsh
 scoop install colortool
 # scoop install alacritty
-# scoop install spotify
+scoop install spotify
 scoop install vlc
 
 $shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
@@ -33,7 +34,10 @@ scoop install vscode-portable
 scoop install dotnet-sdk
 scoop install rustup-msvc
 
-choco install visualstudio2019-workload-vctools --package-parameters "--includeRecommended"
+# choco install visualstudio2019-workload-vctools --package-parameters "--includeRecommended"
+
+# Rust Tools
+cargo install verco
 
 # Audio
 scoop install reaper
