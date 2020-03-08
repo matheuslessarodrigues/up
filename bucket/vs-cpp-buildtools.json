@@ -1,7 +1,6 @@
 {
 	"version": "1.0",
 	"description": "VisualStudio C++ Build Tools",
-	"depends": ["vs-installer"],
 	"url": "",
 	"pre_install": "vs_Community.exe --wait --passive --norestart --includeOptional --includeOptional"
 }
