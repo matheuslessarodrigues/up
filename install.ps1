@@ -30,6 +30,7 @@ scoop install discord
 # Dev
 scoop install mercurial
 scoop install vscode-portable
+iex "$(scoop which code) --install-extension Shan.code-settings-sync"
 
 scoop install dotnet-sdk
 scoop install rustup-msvc
