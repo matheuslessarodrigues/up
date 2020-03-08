@@ -1,16 +1,15 @@
 {
 	"version": "1.0",
 	"description": "VisualStudio C++ Build Tools",
-  "depends": ["vs-installer"],
+	"depends": ["vs-installer"],
 	"installer": {
-    "file": "vs_Community.exe",
+		"file": "vs_Community.exe",
 		"args": [
 			"--includeOptional",
 			"--add Microsoft.VisualStudio.Workload.NativeDesktop"
 			"--wait",
 			"--passive",
 			"--norestart"
-		],
-		"keep": "true"
+		]
 	}
 }
