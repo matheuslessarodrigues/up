@@ -3,14 +3,5 @@
 	"description": "VisualStudio C++ Build Tools",
 	"depends": ["vs-installer"],
 	"url": "",
-	"installer": {
-		"file": "vs_Community.exe",
-		"args": [
-			"--includeOptional",
-			"--add Microsoft.VisualStudio.Workload.NativeDesktop",
-			"--wait",
-			"--passive",
-			"--norestart"
-		]
-	}
+	"pre_install": "vs_Community.exe --wait --passive --norestart --includeOptional --includeOptional"
 }
