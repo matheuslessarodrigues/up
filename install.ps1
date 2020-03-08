@@ -38,6 +38,7 @@ scoop install rustup-msvc
 scoop install unityhub
 
 scoop install vs-installer
+scoop install vs-vs-buildtools
 
 # choco install visualstudio2019-workload-vctools --package-parameters "--includeRecommended"
 
