@@ -3,5 +3,5 @@
 	"description": "VisualStudio installer",
 	"homepage": "https://docs.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio?view=vs-2019",
 	"url": "https://matheuslessarodrigues.github.io/up/visualstudio/vs_Community.exe",
-	"bin": "vs_Community.exe"
+	"bin": "vs_Community"
 }
