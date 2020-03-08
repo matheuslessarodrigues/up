@@ -1,0 +1,6 @@
+{
+	"version": "1.0",
+	"url": "https://matheuslessarodrigues.github.io/up/visualstudio/vs_Community.exe",
+	"description": "VisualStudio installer",
+	"bin": "vs_Comunity.exe"
+}
