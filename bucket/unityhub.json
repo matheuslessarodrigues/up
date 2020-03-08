@@ -1,0 +1,13 @@
+{
+	"version": "1.0",
+	"url": "https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.exe",
+	"description": "The Unity Hub is a management tool that you can use to manage all of your Unity Projects and installations.",
+	"installer": {
+		"args": [
+			"/S"
+		]
+	},
+	"uninstaller": {
+		"script": "\"C:\\Program Files\\Unity Hub\\Uninstall Unity Hub.exe\" /S"
+	}
+}
