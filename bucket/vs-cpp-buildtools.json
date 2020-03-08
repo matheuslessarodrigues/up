@@ -6,7 +6,7 @@
 		"file": "vs_Community.exe",
 		"args": [
 			"--includeOptional",
-			"--add Microsoft.VisualStudio.Workload.NativeDesktop"
+			"--add Microsoft.VisualStudio.Workload.NativeDesktop",
 			"--wait",
 			"--passive",
 			"--norestart"
