@@ -2,6 +2,7 @@
 	"version": "1.0",
 	"description": "VisualStudio C++ Build Tools",
 	"depends": ["vs-installer"],
+	"url": "",
 	"installer": {
 		"file": "vs_Community.exe",
 		"args": [
