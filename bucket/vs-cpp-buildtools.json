@@ -1,6 +1,32 @@
 {
 	"version": "1.0",
-	"description": "VisualStudio C++ Build Tools",
-	"url": "",
-	"pre_install": "vs_Community.exe --wait --passive --norestart --includeOptional --includeOptional"
+	"description": "VisualStudio installer",
+	"homepage": "https://docs.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio?view=vs-2019",
+	"url": "https://matheuslessarodrigues.github.io/up/visualstudio/vs_Community.exe",
+	"bin": "vs_Community.exe",
+	"pre_install": [
+		"mkdir $dir\\visualstudio"
+	],
+	"installer": {
+		"args": [
+			"--wait",
+			"--passive",
+			"--norestart",
+			"--installPath $dir\\visualstudio",
+			"--includeOptional",
+			"--add Microsoft.VisualStudio.Workload.NativeDesktop"
+		],
+		"keep": "true"
+	},
+	"uninstaller": {
+		"file": "vs_Community.exe",
+		"args": [
+			"--uninstall",
+			"--wait",
+			"--passive",
+			"--norestart",
+			"--installPath $dir\\visualstudio",
+			"--all"
+		]
+	}
 }
