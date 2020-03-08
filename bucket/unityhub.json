@@ -8,9 +8,6 @@
 		]
 	},
 	"uninstaller": {
-		"file": "\"C:\\Program Files\\Unity Hub\\Uninstall Unity Hub.exe\"",
-		"args": [
-			"/S"
-		]
+		"script": "& 'C:\\Program Files\\Unity Hub\\Uninstall Unity Hub.exe' /S"
 	}
 }
