@@ -1,5 +1,4 @@
 shell:
-  # program: nu
   program: pwsh
 
 env:
@@ -48,5 +47,6 @@ enable_experimental_conpty_backend: true
 key_bindings:
   - { key: C, mods: Shift|Control, action: Copy }
   - { key: V, mods: Control, action: Paste }
-  - { key: Back, mods: Control, chars: "\x1b\x7f" }
-  - { key: Delete, mods: Control, chars: "\x1b[1;5C\x1b\x7f" }
+  - { key: Back, mods: Control, chars: "\x17" }
+  - { key: Home, mods: Shift, chars: "\x0bY" }
+  - { key: End, mods: Shift, chars: "\x0bO" }
