@@ -71,6 +71,6 @@ Register-ScheduledTask UpdateWallpaper -InputObject $task -Force
 # Print Command to update profiles
 echo ""
 echo ""
-echo "UPDATE PROFILES"
+echo "DOWNLOAD PROFILES"
 echo ""
-echo "Set-ExecutionPolicy Bypass -Scope Process -Force; iex (curl.exe -s 'https://matheuslessarodrigues.github.io/up/update-profiles.ps1' | out-string)"
+echo "iwr -useb https://matheuslessarodrigues.github.io/up/download-profiles.ps1 | iex"
