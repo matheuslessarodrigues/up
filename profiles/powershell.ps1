@@ -10,6 +10,7 @@ $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 Set-Alias -Name vim -Value nvim-qt.exe -Force
 Set-Alias -Name which -Value where.exe -Force
 
+$pwsh_shortcut = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
 $alacritty_profile = "$env:APPDATA/alacritty/alacritty.yml"
 
 function clip {
