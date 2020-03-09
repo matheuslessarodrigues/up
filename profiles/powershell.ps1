@@ -75,3 +75,8 @@ function download-omnisharp-config {
 	$url = "https://matheuslessarodrigues.github.io/up/profiles"
 	set-content -path "omnisharp.json" -value (curl.exe -s "$url/omnisharp.json" | out-string)
 }
+
+function update-colors {
+	curl.exe "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors" -o "$home\terminal-colorscheme.itermcolors"
+	colortool "$home\terminal-colorscheme.itermcolors"
+}
