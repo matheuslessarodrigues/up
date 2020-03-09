@@ -7,13 +7,13 @@ scoop bucket add matheus-bucket https://github.com/matheuslessarodrigues/up.git
 scoop install firefox
 scoop install pwsh
 scoop install colortool
-# scoop install alacritty
+scoop install alacritty
 scoop install spotify
 scoop install vlc
 
 $shell = New-Object -ComObject WScript.Shell
 $pwsh_shortcut = $shell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk")
-$pwsh_shortcut.TargetPath = scoop which pwsh | resolve-path | %{$_.Path}
+$pwsh_shortcut.TargetPath = scoop which alacritty | resolve-path | %{$_.Path}
 $pwsh_shortcut.WorkingDirectory = $home
 $pwsh_shortcut.Save()
 
