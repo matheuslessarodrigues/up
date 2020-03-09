@@ -68,7 +68,7 @@ function ff {
 	}
 }
 
-function update-profiles {
+function download-profiles {
 	Set-ExecutionPolicy Bypass -Scope Process -Force; iex (curl.exe -s 'https://matheuslessarodrigues.github.io/up/update-profiles.ps1' | out-string)
 }
 
