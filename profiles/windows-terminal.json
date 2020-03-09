@@ -1,0 +1,72 @@
+{
+	"$schema": "https://aka.ms/terminal-profiles-schema",
+	"defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+	"profiles": {
+		"defaults": {
+			"cursorShape": "filledBox",
+			"fontSize": 11,
+			"hidden": true,
+			"padding": "0,0,0,0",
+			"antialiasingMode": "cleartype",
+			"colorScheme": "Gruvbox Dark"
+		},
+		"list": [
+			{
+				"guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+				"hidden": false,
+				"name": "PowerShell",
+				"source": "Windows.Terminal.PowershellCore"
+			},
+			{
+				"guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+				"name": "Azure Cloud Shell",
+				"source": "Windows.Terminal.Azure"
+			}
+		]
+	},
+	"schemes": [
+		{
+			"name": "Gruvbox Dark",
+			"background": "#282828",
+			"foreground": "#EBDBB2",
+			"black": "#282828",
+			"blue": "#458588",
+			"brightBlack": "#928374",
+			"brightBlue": "#83A598",
+			"brightCyan": "#8EC07C",
+			"brightGreen": "#B8BB26",
+			"brightPurple": "#D3869B",
+			"brightRed": "#FB4934",
+			"brightWhite": "#EBDBB2",
+			"brightYellow": "#FABD2F",
+			"cyan": "#689D6A",
+			"green": "#98971A",
+			"purple": "#B16286",
+			"red": "#CC241D",
+			"white": "#A89984",
+			"yellow": "#D79921"
+		}
+	],
+	"keybindings": [
+		{
+			"command": "newTab",
+			"keys": "ctrl+t"
+		},
+		{
+			"command": "closeTab",
+			"keys": "ctrl+w"
+		},
+		{
+			"command": "copyTextWithoutNewlines",
+			"keys": "ctrl+c"
+		},
+		{
+			"command": "paste",
+			"keys": "ctrl+v"
+		}
+	],
+	"initialCols": 120,
+	"initialRows": 48,
+	"launchMode": "maximized",
+	"initialPosition": "0,0"
+}
