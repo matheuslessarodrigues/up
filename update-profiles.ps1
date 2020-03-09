@@ -1,7 +1,7 @@
 $url = "https://matheuslessarodrigues.github.io/up/profiles"
 
 # Colortool scheme
-curl.exe "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors" -o "$home\colorscheme.itermcolors"
+# curl.exe "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors" -o "$home\colorscheme.itermcolors"
 
 # PowerShell Profile
 curl.exe "$url/powershell.ps1" -o $profile
