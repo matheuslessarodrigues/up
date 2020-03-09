@@ -10,12 +10,13 @@ iwr -useb https://chocolatey.org/install.ps1 | iex
 scoop install firefox
 scoop install pwsh
 scoop install colortool
-scoop install alacritty
+# scoop install alacritty
 
 $shell = New-Object -ComObject WScript.Shell
 $pwsh_shortcut = $shell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk")
-$pwsh_shortcut.TargetPath = scoop which alacritty | resolve-path | %{$_.Path}
-$pwsh_shortcut.WorkingDirectory = $home
+$target_path = scoop which pwsh | resolve-path | select -ExpandProperty Path
+$pwsh_shortcut.TargetPath = $target_path
+$pwsh_shortcut.WorkingDirectory = $target_path | split-path -Parent
 $pwsh_shortcut.Save()
 
 # Media
