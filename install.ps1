@@ -3,7 +3,7 @@ iwr -useb get.scoop.sh | iex
 scoop install git
 scoop bucket add extras
 
-iwr -useb https://chocolatey.org/install.ps1 | iex
+curl.exe -s https://chocolatey.org/install.ps1 | iex
 
 # Main
 scoop install firefox
