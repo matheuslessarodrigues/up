@@ -45,7 +45,8 @@ scoop install dotnet-sdk
 scoop install rustup-msvc
 scoop install unityhub
 
-choco install visualstudio2019-workload-vctools --package-parameters "--includeRecommended" -y
+choco install visualstudio2019-workload-vctools -y
+choco install visualstudio2019-workload-manageddesktop -y
 choco install unity-hub -y
 
 # Rust Tools
