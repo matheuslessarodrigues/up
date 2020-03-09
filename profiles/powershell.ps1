@@ -69,12 +69,12 @@ function ff {
 }
 
 function download-profiles {
-	Set-ExecutionPolicy Bypass -Scope Process -Force; iex (curl.exe -s 'https://matheuslessarodrigues.github.io/up/update-profiles.ps1' | out-string)
+	Set-ExecutionPolicy Bypass -Scope Process -Force
+	iwr -useb https://matheuslessarodrigues.github.io/up/download-profiles.ps1 | iex
 }
 
 function download-omnisharp-config {
-	$url = "https://matheuslessarodrigues.github.io/up/profiles"
-	set-content -path "omnisharp.json" -value (curl.exe -s "$url/omnisharp.json" | out-string)
+	curl.exe "https://matheuslessarodrigues.github.io/up/profiles/omnisharp.json" -O
 }
 
 function update-colors {
