@@ -1,23 +1,13 @@
-$url = "https://matheuslessarodrigues.github.io/up/profiles"
+function download($uri, $targetPath) {
+  write-host "downloading $uri..."
+  curl.exe "https://matheuslessarodrigues.github.io/up/profiles/$uri" -s -o $targetPath --create-dirs  
+}
 
-# PowerShell Profile
-curl.exe "$url/powershell.ps1" -o $profile
+download("powershell.ps1", $profile)
+download("alacritty.yml", "$env:APPDATA/alacritty/alacritty.yml")
+download("sshconfig", "$home\.ssh\config")
+download("gitconfig", "$home\.gitconfig")
+download("mercurial.ini", "$home\mercurial.ini")
+download("update-wallpaper.ps1", "$home\update-wallpaper.ps1")
 
-# Alacritty Profile
-curl.exe "$url/alacritty.yml" -o "$env:APPDATA/alacritty/alacritty.yml" --create-dirs
-
-# Firefox Profile
-get-childitem -path "$env:APPDATA/Mozilla/Firefox/Profiles" -Directory | %{$path = join-path $_.FullName "user.js"; curl.exe "$url/firefox.js" -o $path;}
-
-# SSH Profile
-mkdir "$home\.ssh" -force
-curl.exe "$url/sshconfig" -o "$home\.ssh\config"
-
-# Git Profile
-curl.exe "$url/gitconfig" -o "$home\.gitconfig"
-
-# Mercurial Profile
-curl.exe "$url/mercurial.ini" -o "$home\mercurial.ini"
-
-# Update Wallpaper
-curl.exe "$url/update-wallpaper.ps1" -o "$home\update-wallpaper.ps1"
+get-childitem -path "$env:APPDATA/Mozilla/Firefox/Profiles" -Directory | %{download("firefox.js", join-path $_.FullName "user.js")}
