@@ -10,4 +10,4 @@ download("gitconfig", "$home\.gitconfig")
 download("mercurial.ini", "$home\mercurial.ini")
 download("update-wallpaper.ps1", "$home\update-wallpaper.ps1")
 
-get-childitem -path "$env:APPDATA/Mozilla/Firefox/Profiles" -Directory | %{download("firefox.js", join-path $_.FullName "user.js")}
+get-childitem -path "$env:APPDATA/Mozilla/Firefox/Profiles" -Directory | %{download("firefox.js", (join-path $_.FullName "user.js"))}
