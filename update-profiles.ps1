@@ -1,27 +1,26 @@
 $url = "https://matheuslessarodrigues.github.io/up/profiles"
 
 # Colortool scheme
-set-content -path "$home\colorscheme.itermcolors" -value (curl.exe -s "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors" | out-string)
+curl.exe "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors" -o "$home\colorscheme.itermcolors"
 
 # PowerShell Profile
-set-content -path $profile -value (curl.exe -s "$url/powershell.ps1" | out-string)
+curl.exe "$url/powershell.ps1" -o $profile
 
 # Alacritty Profile
-# set-content -path "$env:APPDATA/alacritty/alacritty.yml" -value (curl.exe -s "$url/alacritty.yml" | out-string)
+curl.exe "$url/alacritty.yml" -o "$env:APPDATA/alacritty/alacritty.yml"
 
 # Firefox Profile
-$firefoxProfile = (curl.exe -s "$url/firefox.js" | out-string)
-get-childitem -path "$env:APPDATA/Mozilla/Firefox/Profiles" -Directory | %{$path = join-path $_.FullName "user.js"; set-content -path $path -value $firefoxProfile;}
+get-childitem -path "$env:APPDATA/Mozilla/Firefox/Profiles" -Directory | %{$path = join-path $_.FullName "user.js"; curl.exe "$url/firefox.js" -o $path;}
 
 # SSH Profile
 mkdir "$home\.ssh" -force
-set-content -path "$home\.ssh\config" -value (curl.exe -s "$url/sshconfig" | out-string)
+curl.exe "$url/sshconfig" -o "$home\.ssh\config"
 
 # Git Profile
-set-content -path "$home\.gitconfig" -value (curl.exe -s "$url/gitconfig" | out-string)
+curl.exe "$url/gitconfig" -o "$home\.gitconfig"
 
 # Mercurial Profile
-set-content -path "$home\mercurial.ini" -value (curl.exe -s "$url/mercurial.ini" | out-string)
+curl.exe "$url/mercurial.ini" -o "$home\mercurial.ini"
 
 # Update Wallpaper
-set-content -path "$home\update-wallpaper.ps1" -value (curl.exe -s "$url/update-wallpaper.ps1" | out-string)
+curl.exe "$url/update-wallpaper.ps1" -o "$home\update-wallpaper.ps1"
