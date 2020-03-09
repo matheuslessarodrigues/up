@@ -3,7 +3,7 @@ iwr -useb get.scoop.sh | iex
 scoop install git
 scoop bucket add extras
 
-curl.exe -s https://chocolatey.org/install.ps1 | iex
+iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 # Main
 scoop install firefox
