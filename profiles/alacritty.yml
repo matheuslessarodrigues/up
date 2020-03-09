@@ -3,7 +3,8 @@ shell:
 
 env:
   TERM: ''
-  FZF_DEFAULT_COMMAND: rg --files . --glob "!*.meta"
+  COLORTERM: truecolor
+  FZF_DEFAULT_COMMAND: rg --files . --glob "!*.meta" 2> nul
 
 tabspaces: 4
 
