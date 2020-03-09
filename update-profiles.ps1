@@ -7,6 +7,7 @@ curl.exe "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/maste
 curl.exe "$url/powershell.ps1" -o $profile
 
 # Alacritty Profile
+mkdir "$env:APPDATA/alacritty/"
 curl.exe "$url/alacritty.yml" -o "$env:APPDATA/alacritty/alacritty.yml"
 
 # Firefox Profile
