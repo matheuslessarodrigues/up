@@ -11,7 +11,9 @@ window:
   dimensions:
    columns: 140
    lines: 50
+  startup_mode: Maximized
 
+# Colors (Gruvbox dark)
 colors:
   # Default colors
   primary:
