@@ -1,21 +1,28 @@
-Set-ExecutionPolicy RemoteSigned -scope CurrentUser; iwr -useb get.scoop.sh | iex
+# Install Package Managers
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+iwr -useb get.scoop.sh | iex
 scoop install git
 scoop bucket add extras
-scoop bucket add matheus-bucket https://github.com/matheuslessarodrigues/up.git
+
+iwr -useb https://chocolatey.org/install.ps1 | iex
 
 # Main
 scoop install firefox
 scoop install pwsh
 scoop install colortool
 scoop install alacritty
-scoop install spotify
-scoop install vlc
 
 $shell = New-Object -ComObject WScript.Shell
 $pwsh_shortcut = $shell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk")
 $pwsh_shortcut.TargetPath = scoop which alacritty | resolve-path | %{$_.Path}
 $pwsh_shortcut.WorkingDirectory = $home
 $pwsh_shortcut.Save()
+
+# Media
+scoop install reaper
+scoop install vlc
+
+choco install spotify -y
 
 # Tools
 scoop install fzf
@@ -30,20 +37,17 @@ scoop install discord
 # Dev
 scoop install mercurial
 scoop install vscode-portable
-#iex "$(scoop which code) --install-extension Shan.code-settings-sync"
 code --install-extension Shan.code-settings-sync
 
 scoop install dotnet-sdk
 scoop install rustup-msvc
 scoop install unityhub
 
-scoop install vs-cpp-buildtools
+choco install visualstudio2019-workload-vctools --package-parameters "--includeRecommended" -y
+choco install unity-hub -y
 
 # Rust Tools
 cargo install verco
-
-# Audio
-scoop install reaper
 
 # Registry
 ## map capslock to esc
