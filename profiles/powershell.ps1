@@ -1,14 +1,14 @@
 Set-PSReadlineKeyHandler -Key Ctrl+m -Function AcceptLine
 Set-PSReadlineKeyHandler -Key Ctrl+w -Function BackwardKillWord
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadlineKeyHandler -Key "Ctrl+k,Y" -Function SelectBackwardsLine
+Set-PSReadlineKeyHandler -Key "Ctrl+k,O" -Function SelectLine
 
 $env:FZF_DEFAULT_COMMAND='rg --files . --glob "!*.meta"'
 $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 
 Set-Alias -Name vim -Value nvim-qt.exe -Force
 Set-Alias -Name which -Value where.exe -Force
-
-colortool -q "$home\colorscheme.itermcolors"
 
 function clip {
 	param(
