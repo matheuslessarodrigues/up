@@ -7,8 +7,7 @@ $url = "https://matheuslessarodrigues.github.io/up/profiles"
 curl.exe "$url/powershell.ps1" -o $profile
 
 # Alacritty Profile
-mkdir "$env:APPDATA/alacritty/"
-curl.exe "$url/alacritty.yml" -o "$env:APPDATA/alacritty/alacritty.yml"
+curl.exe "$url/alacritty.yml" -o "$env:APPDATA/alacritty/alacritty.yml" --create-dirs
 
 # Firefox Profile
 get-childitem -path "$env:APPDATA/Mozilla/Firefox/Profiles" -Directory | %{$path = join-path $_.FullName "user.js"; curl.exe "$url/firefox.js" -o $path;}
