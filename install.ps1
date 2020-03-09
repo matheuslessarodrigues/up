@@ -17,11 +17,6 @@ $pwsh_shortcut.TargetPath = scoop which pwsh | resolve-path | %{$_.Path}
 $pwsh_shortcut.WorkingDirectory = $home
 $pwsh_shortcut.Save()
 
-# Powershell Colors
-curl.exe "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors" -o "$home\colorscheme.itermcolors"
-pwsh -Command "colortool -q $home\colorscheme.itermcolors"
-del "$home\colorscheme.itermcolors"
-
 # Tools
 scoop install fzf
 scoop install ripgrep
