@@ -10,10 +10,11 @@ scoop install firefox
 scoop install pwsh
 scoop install colortool
 # scoop install alacritty
+scoop install windows-terminal
 
 $shell = New-Object -ComObject WScript.Shell
 $pwsh_shortcut = $shell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk")
-$target_path = scoop which pwsh | resolve-path | select -ExpandProperty Path
+$target_path = scoop which wt | resolve-path | select -ExpandProperty Path
 $pwsh_shortcut.TargetPath = $target_path
 $pwsh_shortcut.WorkingDirectory = $target_path | split-path -Parent
 $pwsh_shortcut.Save()
