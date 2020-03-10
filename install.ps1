@@ -42,7 +42,6 @@ code --install-extension Shan.code-settings-sync
 
 scoop install dotnet-sdk
 scoop install rustup-msvc
-scoop install unityhub
 
 choco install visualstudio2019-workload-vctools -y
 choco install visualstudio2019-workload-manageddesktop -y
