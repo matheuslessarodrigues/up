@@ -68,6 +68,8 @@ $settings = New-ScheduledTaskSettingsSet
 $task = New-ScheduledTask -Action $action -Principal $principal -Trigger $trigger -Settings $settings
 Register-ScheduledTask UpdateWallpaper -InputObject $task -Force
 
+# &"${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe
+
 # Print Command to update profiles
 echo ""
 echo ""
