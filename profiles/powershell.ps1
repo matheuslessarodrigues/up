@@ -70,7 +70,7 @@ function ff {
 }
 
 function set-workspace-here {
-	[System.Environment]::SetEnvironmentVariable("workspace",$PWD)
+	[System.Environment]::SetEnvironmentVariable("workspace", $PWD, [System.EnvironmentVariableTarget]::User)
 }
 
 function download-profiles {
