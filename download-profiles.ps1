@@ -5,6 +5,7 @@ function download($uri, $targetPath) {
 
 download "powershell.ps1" $profile
 download "alacritty.yml" "$env:APPDATA/alacritty/alacritty.yml"
+download "windows-terminal.json" "$env:LOCALAPPDATA/Microsoft/Windows Terminal/profiles.json"
 download "sshconfig" "$home\.ssh\config"
 download "gitconfig" "$home\.gitconfig"
 download "mercurial.ini" "$home\mercurial.ini"
