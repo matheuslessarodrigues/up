@@ -9,15 +9,12 @@ $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 
 Set-Alias -Name vim -Value nvim-qt.exe -Force
 Set-Alias -Name which -Value where.exe -Force
+Remove-Alias -Name cd -Force
 
 $alacritty_profile = "$env:APPDATA/alacritty/alacritty.yml"
 
-cd $env:workspace
-
 function clip {
-	param(
-		[parameter(position=0,mandatory=$true,ValueFromPipeline=$true)]$text
-	)
+	param([parameter(position=0,mandatory=$true,ValueFromPipeline=$true)]$text)
 	begin{
 		$data = [System.Text.StringBuilder]::new()
 	}
@@ -33,6 +30,12 @@ function clip {
 			$data.ToString().TrimEnd([Environment]::NewLine) + [Convert]::ToChar(0) | clip.exe
 		}
 	}
+}
+
+function cd {
+	param([parameter(position=0,mandatory=$false,ValueFromPipeline=$true)]$location)
+	set-location $location
+	$Host.UI.RawUI.WindowTitle = pwd | split-path -Leaf
 }
 
 function fd {
@@ -86,3 +89,5 @@ function update-colors {
 	curl.exe "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors" -o "$home\terminal-colorscheme.itermcolors"
 	colortool "$home\terminal-colorscheme.itermcolors"
 }
+
+cd $env:workspace
