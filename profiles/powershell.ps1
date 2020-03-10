@@ -12,7 +12,7 @@ Set-Alias -Name which -Value where.exe -Force
 
 $alacritty_profile = "$env:APPDATA/alacritty/alacritty.yml"
 
-cd $workspace
+cd $env:workspace
 
 function clip {
 	param(
@@ -67,6 +67,10 @@ function ff {
 		write-host $file
 		$file | clip
 	}
+}
+
+function set-workspace-here {
+	[System.Environment]::SetEnvironmentVariable("workspace",$PWD)
 }
 
 function download-profiles {
