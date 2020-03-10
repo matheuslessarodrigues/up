@@ -43,9 +43,14 @@ code --install-extension Shan.code-settings-sync
 scoop install dotnet-sdk
 scoop install rustup-msvc
 
+choco install unity-hub -y
 choco install visualstudio2019-workload-vctools -y
 choco install visualstudio2019-workload-manageddesktop -y
-choco install unity-hub -y
+
+$msbuild_path = &"${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe
+$msbuild_path = $msbuild_path | split-path -Parent
+$env:Path += ";$msbuild_path"
+[System.Environment]::SetEnvironmentVariable("Path",$env:Path,[System.EnvironmentVariableTarget]::Machine)
 
 # Rust Tools
 cargo install verco
@@ -67,8 +72,6 @@ $principal = New-ScheduledTaskPrincipal -UserID "$env:USERDOMAIN\$env:USERNAME" 
 $settings = New-ScheduledTaskSettingsSet
 $task = New-ScheduledTask -Action $action -Principal $principal -Trigger $trigger -Settings $settings
 Register-ScheduledTask UpdateWallpaper -InputObject $task -Force
-
-# &"${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe
 
 # Print Command to update profiles
 echo ""
