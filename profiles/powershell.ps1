@@ -1,32 +1,30 @@
-Set-PSReadlineKeyHandler -Key Ctrl+m -Function AcceptLine
-Set-PSReadlineKeyHandler -Key Ctrl+w -Function BackwardKillWord
-Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-Set-PSReadlineKeyHandler -Key "Ctrl+k,Y" -Function SelectBackwardsLine
-Set-PSReadlineKeyHandler -Key "Ctrl+k,O" -Function SelectLine
+Set-PSReadlineKeyHandler -key Ctrl+m -function AcceptLine
+Set-PSReadlineKeyHandler -key Ctrl+w -function BackwardKillWord
+Set-PSReadlineKeyHandler -key Tab -function MenuComplete
+Set-PSReadlineKeyHandler -key "Ctrl+k,Y" -function SelectBackwardsLine
+Set-PSReadlineKeyHandler -key "Ctrl+k,O" -function SelectLine
 
 $env:FZF_DEFAULT_COMMAND='rg --files . --glob "!*.meta" 2> nul'
 $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 
-Set-Alias -Name vim -Value nvim-qt.exe -Force
-Set-Alias -Name which -Value where.exe -Force
-Remove-Alias -Name cd -Force
+Set-Alias -name vim -value nvim-qt.exe -force
+Set-Alias -name which -value where.exe -force
+Remove-Alias -name cd -force
 
 $alacritty_profile = "$env:APPDATA/alacritty/alacritty.yml"
 
 function clip {
 	param([parameter(position=0,mandatory=$true,ValueFromPipeline=$true)]$text)
-	begin{
+	begin {
 		$data = [System.Text.StringBuilder]::new()
 	}
-
-	process{
-		if ($text) {
+	process {
+		if($text) {
 			[void]$data.AppendLine($text)
 		}
 	}
-
-	end{
-		if ($data) {
+	end {
+		if($data) {
 			$data.ToString().TrimEnd([Environment]::NewLine) + [Convert]::ToChar(0) | clip.exe
 		}
 	}
@@ -35,11 +33,11 @@ function clip {
 function cd {
 	param([parameter(position=0,mandatory=$false,ValueFromPipeline=$true)]$location)
 	set-location $location
-	$Host.UI.RawUI.WindowTitle = pwd | split-path -Leaf
+	$Host.UI.RawUI.WindowTitle = pwd | split-path -leaf
 }
 
 function fd {
-	while ($true)
+	while($true)
 	{
 		$currentPath = (pwd).Path + "\"
 		$dirs = ".", (ls -directory -path . -name)
@@ -69,6 +67,27 @@ function ff {
 	if($file) {
 		write-host $file
 		$file | clip
+	}
+}
+
+function fp {
+	param([parameter(position=0,mandatory=$true,ValueFromPipeline=$true)]$text)
+	begin {
+		$data = [System.Text.StringBuilder]::new()
+	}
+	process {
+		if($text) {
+			[void]$data.AppendLine($text)
+		}
+	}
+	end {
+		if($data) {
+			$selection = $data.ToString().Trim() | fzf --layout=reverse --no-sort
+			if($selection) {
+				write-host $selection
+				$selection | clip
+			}
+		}
 	}
 }
 
