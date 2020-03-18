@@ -56,11 +56,11 @@
 	"keybindings": [
 		{
 			"command": "newTab",
-			"keys": "ctrl+shift+t"
+			"keys": "alt+t"
 		},
 		{
-			"command": "closeTab",
-			"keys": "ctrl+shift+w"
+			"command": "closePane",
+			"keys": "alt+w"
 		},
 		{
 			"command": "copyTextWithoutNewlines",
@@ -69,6 +69,14 @@
 		{
 			"command": "paste",
 			"keys": "ctrl+v"
+		},
+		{
+			"command": "splitVertical",
+			"keys": "alt+v"
+		},
+		{
+			"command": "splitHorizontal",
+			"keys": "alt+h"
 		}
 	],
 	"initialCols": 120,
