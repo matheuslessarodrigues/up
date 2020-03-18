@@ -8,7 +8,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 # Main
 scoop install firefox
 scoop install pwsh
-scoop install colortool
+# scoop install colortool
 # scoop install alacritty
 scoop install windows-terminal
 
