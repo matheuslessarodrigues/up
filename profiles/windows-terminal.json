@@ -56,11 +56,11 @@
 	"keybindings": [
 		{
 			"command": "newTab",
-			"keys": "ctrl+t"
+			"keys": "ctrl+shift+t"
 		},
 		{
 			"command": "closeTab",
-			"keys": "ctrl+w"
+			"keys": "ctrl+shift+w"
 		},
 		{
 			"command": "copyTextWithoutNewlines",
