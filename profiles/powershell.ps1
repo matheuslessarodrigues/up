@@ -104,6 +104,10 @@ function download-omnisharp-config {
 	curl.exe "https://matheuslessarodrigues.github.io/up/profiles/omnisharp.json" -O
 }
 
+function download-nuget-config {
+	curl.exe "https://matheuslessarodrigues.github.io/up/profiles/nuget.config" -O
+}
+
 function update-colors {
 	curl.exe "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors" -o "$home\terminal-colorscheme.itermcolors"
 	colortool "$home\terminal-colorscheme.itermcolors"
