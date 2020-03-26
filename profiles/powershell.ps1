@@ -104,9 +104,12 @@ function download-omnisharp-config {
 	curl.exe "https://matheuslessarodrigues.github.io/up/profiles/omnisharp.json" -O
 }
 
-function update-colors {
-	curl.exe "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors" -o "$home\terminal-colorscheme.itermcolors"
-	colortool "$home\terminal-colorscheme.itermcolors"
+function ssh-keygen {
+	param([parameter(position=0,mandatory=$true,ValueFromPipeline=$true)]$keyname)
+	begin {
+		git bash --cd-to-home --hide -c "ssh-keygen -q -t rsa -f .ssh/$keyname -N ''"
+		cat "$home/.ssh/$keyname.pub"
+	}
 }
 
 cd $env:workspace
