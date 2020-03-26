@@ -112,4 +112,19 @@ function ssh-keygen {
 	}
 }
 
+function git-clone {
+	param(
+		$key,
+		[parameter(position=0,mandatory=$true)]$url,
+		[parameter(position=1,mandatory=$false,ValueFromRemainingArguments=$true)]$remaining
+	)
+	begin {
+		if $key {
+			git clone -c "ssh-keygen -q -t rsa -f .ssh/$key -N ''" $url @remaining
+		} else {
+			git clone $url @remaining
+		}
+	}
+}
+
 cd $env:workspace
