@@ -112,6 +112,7 @@ function ssh-keygen {
 	}
 }
 
+
 function git-clone {
 	param(
 		$key,
@@ -119,8 +120,8 @@ function git-clone {
 		[parameter(position=1,mandatory=$false,ValueFromRemainingArguments=$true)]$remaining
 	)
 	begin {
-		if $key {
-			git clone -c "ssh-keygen -q -t rsa -f .ssh/$key -N ''" $url @remaining
+		if($key) {
+			git clone -c "core.sshcommand=ssh -i ~/.ssh/$key" $url @remaining
 		} else {
 			git clone $url @remaining
 		}
