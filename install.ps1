@@ -6,11 +6,10 @@ scoop bucket add extras
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 # Main
-scoop install firefox
-scoop install pwsh
-# scoop install colortool
 # scoop install alacritty
 scoop install windows-terminal
+scoop install firefox
+scoop install pwsh
 
 $shell = New-Object -ComObject WScript.Shell
 $pwsh_shortcut = $shell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk")
