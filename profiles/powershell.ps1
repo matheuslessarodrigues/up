@@ -1,8 +1,6 @@
 Set-PSReadlineKeyHandler -key Ctrl+m -function AcceptLine
 Set-PSReadlineKeyHandler -key Ctrl+w -function BackwardKillWord
 Set-PSReadlineKeyHandler -key Tab -function MenuComplete
-Set-PSReadlineKeyHandler -key "Ctrl+k,Y" -function SelectBackwardsLine
-Set-PSReadlineKeyHandler -key "Ctrl+k,O" -function SelectLine
 
 $env:FZF_DEFAULT_COMMAND='rg --files . --glob "!*.meta" 2> nul'
 $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
