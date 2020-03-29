@@ -4,7 +4,6 @@ shell:
 env:
   COLORTERM: truecolor
   FZF_DEFAULT_COMMAND: rg --files . --glob "!*.meta" 2> nul
-  ALACRITTY_PROFILE: /mnt/c/Users/mathe/AppData/Roaming/alacritty/alacritty.yml
 
 tabspaces: 4
 
