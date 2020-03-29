@@ -95,11 +95,11 @@ function set-workspace-here {
 
 function download-profiles {
 	Set-ExecutionPolicy Bypass -Scope Process -Force
-	iwr -useb https://matheuslessarodrigues.github.io/up/download-profiles.ps1 | iex
+	iwr -useb "https://raw.githubusercontent.com/matheuslessarodrigues/up/master/profiles/download-profiles.ps1" | iex
 }
 
 function download-omnisharp-config {
-	curl.exe "https://matheuslessarodrigues.github.io/up/profiles/omnisharp.json" -O
+	curl.exe "https://raw.githubusercontent.com/matheuslessarodrigues/up/master/profiles/omnisharp.json" -O
 }
 
 function ssh-keygen {
@@ -109,7 +109,6 @@ function ssh-keygen {
 		cat "$home/.ssh/$keyname.pub"
 	}
 }
-
 
 function git-clone {
 	param(
