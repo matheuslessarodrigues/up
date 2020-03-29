@@ -1,6 +1,6 @@
 function download($uri, $targetPath) {
   write-host "downloading $uri to $targetPath..."
-  curl.exe "https://matheuslessarodrigues.github.io/up/profiles/$uri" -s --create-dirs -o $targetPath
+  curl.exe "https://raw.githubusercontent.com/matheuslessarodrigues/up/master/profiles/$uri" -s --create-dirs -o $targetPath
 }
 
 download "powershell.ps1" $profile
