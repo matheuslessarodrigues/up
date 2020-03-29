@@ -1,10 +1,10 @@
 shell:
-  program: pwsh
+  program: wsl
 
 env:
-  TERM: ''
   COLORTERM: truecolor
   FZF_DEFAULT_COMMAND: rg --files . --glob "!*.meta" 2> nul
+  ALACRITTY_PROFILE: /mnt/c/Users/mathe/AppData/Roaming/alacritty/alacritty.yml
 
 tabspaces: 4
 
@@ -45,11 +45,8 @@ colors:
     cyan:    '#8ec07c'
     white:   '#ebdbb2'
 
-enable_experimental_conpty_backend: true
-
 key_bindings:
   - { key: C, mods: Shift|Control, action: Copy }
   - { key: V, mods: Control, action: Paste }
   - { key: Back, mods: Control, chars: "\x17" }
-  - { key: Home, mods: Shift, chars: "\x0bY" }
-  - { key: End, mods: Shift, chars: "\x0bO" }
+  - { key: Delete, mods: Control, chars: "\x1bD" }
