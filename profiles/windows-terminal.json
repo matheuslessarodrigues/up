@@ -81,5 +81,6 @@
 	],
 	"initialCols": 120,
 	"initialRows": 50,
-	"initialPosition": "0,0"
+	"initialPosition": "0,0",
+	"launchMode": "maximized"
 }
