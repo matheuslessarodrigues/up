@@ -95,7 +95,7 @@ function set-workspace-here {
 
 function download-profiles {
 	Set-ExecutionPolicy Bypass -Scope Process -Force
-	iwr -useb "https://raw.githubusercontent.com/matheuslessarodrigues/up/master/profiles/download-profiles.ps1" | iex
+	iwr -useb "https://raw.githubusercontent.com/matheuslessarodrigues/up/master/download-profiles.ps1" | iex
 }
 
 function download-omnisharp-config {
