@@ -11,8 +11,10 @@ scoop install windows-terminal
 scoop install firefox
 scoop install pwsh
 
+$shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
+rm -force $shortcut_path
 $shell = New-Object -ComObject WScript.Shell
-$pwsh_shortcut = $shell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk")
+$pwsh_shortcut = $shell.CreateShortcut($shortcut_path)
 $target_path = scoop which wt | resolve-path | select -ExpandProperty Path
 $pwsh_shortcut.TargetPath = $target_path
 $pwsh_shortcut.WorkingDirectory = $target_path | split-path -Parent
