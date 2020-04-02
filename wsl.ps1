@@ -10,8 +10,8 @@ wsl useradd -m -G wheel matheus
 wsl passwd matheus
 arch config --default-user matheus
 
-wsl sudo pacman -Syyu --noconfirm
 wsl sudo pacman-key --init
 wsl sudo pacman-key --populate archlinux
+wsl sudo pacman -Syyu --noconfirm
 wsl sudo pacman -Sy git --noconfirm
 wsl sudo pacman -Sy openssh --noconfirm
