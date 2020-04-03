@@ -17,7 +17,7 @@ wsl sudo pacman -Sy openssh --noconfirm
 wsl sudo pacman -Sy git --noconfirm
 wsl sudo pacman -Sy mercurial --noconfirm
 
-wsl yes y | sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+wsl sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 wsl sudo pacman -Sy fzf --noconfirm
 wsl sudo pacman -Sy ripgrep --noconfirm
