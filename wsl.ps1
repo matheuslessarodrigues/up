@@ -1,7 +1,3 @@
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -NoRestart
-
-# restart!
-
 scoop install archwsl
 arch
 
@@ -14,6 +10,17 @@ wsl sudo pacman-key --init
 wsl sudo pacman-key --populate archlinux
 wsl sudo pacman -Syyu --noconfirm
 
-wsl sudo pacman -Sy git --noconfirm
+wsl sudo pacman -Sy zsh --noconfirm
+wsl sudo pacman -Sy tmux --noconfirm
+
 wsl sudo pacman -Sy openssh --noconfirm
+wsl sudo pacman -Sy git --noconfirm
+wsl sudo pacman -Sy mercurial --noconfirm
+
+wsl sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+wsl sudo pacman -Sy fzf --noconfirm
+wsl sudo pacman -Sy ripgrep --noconfirm
+
 wsl sudo pacman -Sy kakoune --noconfirm
+wsl sudo pacman -Sy kak-lsp --noconfirm
