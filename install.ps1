@@ -22,7 +22,6 @@ $pwsh_shortcut.Save()
 
 # Enable WSL
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -NoRestart
-"iwr -useb https://raw.githubusercontent.com/matheuslessarodrigues/up/master/config-wsl.ps1 | iex" > $home/config-wsl.txt
 
 # Media
 scoop install reaper
