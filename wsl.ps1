@@ -23,4 +23,4 @@ wsl sudo pacman -Sy ripgrep --noconfirm
 wsl sudo pacman -Sy kakoune --noconfirm
 wsl sudo pacman -Sy kak-lsp --noconfirm
 
-wsl sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+wsl sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
