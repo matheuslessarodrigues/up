@@ -24,4 +24,4 @@ wsl sudo pacman -Sy kakoune --noconfirm
 wsl sudo pacman -Sy kak-lsp --noconfirm
 
 wsl sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-sudo chsh -s /bin/zsh matheus
+wsl sudo chsh -s /bin/zsh matheus
