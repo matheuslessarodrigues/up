@@ -2,10 +2,12 @@
 iwr -useb get.scoop.sh | iex
 scoop install git
 scoop bucket add extras
+scoop bucket add nerd-fonts
 
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 # Main
+scoop install Cascadia-Code
 # scoop install alacritty
 scoop install windows-terminal
 scoop install firefox
