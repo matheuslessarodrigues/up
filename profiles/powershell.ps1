@@ -2,12 +2,15 @@ Set-PSReadlineKeyHandler -key Ctrl+m -function AcceptLine
 Set-PSReadlineKeyHandler -key Ctrl+w -function BackwardKillWord
 Set-PSReadlineKeyHandler -key Tab -function MenuComplete
 
+$env:BAT_PAGER="less -FR --no-init"
 $env:FZF_DEFAULT_COMMAND='rg --files . --glob "!*.meta" 2> nul'
 $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 
 Set-Alias -name vim -value nvim-qt.exe -force
 Set-Alias -name which -value where.exe -force
+Set-Alias -name cat -value bat.exe -force
 Remove-Alias -name cd -force
+Remove-Alias -name ls -force
 
 $alacritty_profile = "$env:APPDATA/alacritty/alacritty.yml"
 
@@ -28,6 +31,16 @@ function clip {
 	}
 }
 
+function ls {
+	param([parameter(position=0,mandatory=$false,ValueFromPipeline=$true)]$location)
+	$saved_pwd = pwd
+	if($location) {
+		set-location $location
+	}
+	fd -d 1
+	set-location $saved_pwd
+}
+
 function cd {
 	param([parameter(position=0,mandatory=$false,ValueFromPipeline=$true)]$location)
 	set-location $location
@@ -36,7 +49,7 @@ function cd {
 
 function ff {
 	$currentPath = (pwd).Path + "\"
-	$file = fzf --layout=reverse --prompt=$currentPath --no-sort --filepath-word --preview="rg . {} --no-line-number --max-count 1 --after-context 20 --color always"
+	$file = fzf --layout=reverse --prompt=$currentPath --no-sort --filepath-word --preview="bat {} --paging never --line-range :50 --style snip --color always"
 	if($file) {
 		write-host $file
 		$file | clip
