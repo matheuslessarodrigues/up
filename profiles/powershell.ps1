@@ -3,7 +3,7 @@ Set-PSReadlineKeyHandler -key Ctrl+w -function BackwardKillWord
 Set-PSReadlineKeyHandler -key Tab -function MenuComplete
 
 $env:BAT_PAGER="less -FR --no-init"
-$env:FZF_DEFAULT_COMMAND='rg --files . --glob "!*.meta" 2> nul'
+$env:FZF_DEFAULT_COMMAND='fd --type f'
 $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 
 Set-Alias -name vim -value nvim-qt.exe -force
