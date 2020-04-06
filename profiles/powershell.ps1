@@ -34,31 +34,6 @@ function cd {
 	$Host.UI.RawUI.WindowTitle = pwd | split-path -leaf
 }
 
-function fd {
-	while($true)
-	{
-		$currentPath = (pwd).Path + "\"
-		$dirs = ".", (ls -directory -path . -name)
-		$output = $dirs | fzf --layout=reverse --prompt=$currentPath --expect=';' --print-query --no-sort --preview="rg --max-depth 1 --files {} --color always"
-
-		if([string]::IsNullOrWhiteSpace($output)) {
-			break
-		}
-
-		$query = $output[0]
-		$command = $output[1]
-		$dir = $output[2]
-
-		if($command -eq ";") {
-			cd ..
-		} elseif($dir -eq ".") {
-			break
-		} else {
-			cd $dir
-		}
-	}
-}
-
 function ff {
 	$currentPath = (pwd).Path + "\"
 	$file = fzf --layout=reverse --prompt=$currentPath --no-sort --filepath-word --preview="rg . {} --no-line-number --max-count 1 --after-context 20 --color always"
@@ -95,7 +70,7 @@ function set-workspace-here {
 
 function download-profiles {
 	Set-ExecutionPolicy Bypass -Scope Process -Force
-	iwr -useb "https://raw.githubusercontent.com/matheuslessarodrigues/up/master/download-profiles.ps1" | iex
+	iwr -useb "https://raw.githubusercontent.com/matheuslessarodrigues/up/master/profiles/download-profiles.ps1" | iex
 }
 
 function download-omnisharp-config {
