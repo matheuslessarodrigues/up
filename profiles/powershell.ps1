@@ -35,7 +35,11 @@ function ls {
 	param([parameter(position=0,mandatory=$false,ValueFromPipeline=$true)]$location)
 	$saved_pwd = pwd
 	if($location) {
-		set-location $location
+		set-location $location 2>$null
+		if(-not $?) {
+			write-error $error[0]
+			return
+		}
 	}
 	fd -d 1
 	set-location $saved_pwd
@@ -43,7 +47,11 @@ function ls {
 
 function cd {
 	param([parameter(position=0,mandatory=$false,ValueFromPipeline=$true)]$location)
-	set-location $location
+	set-location $location 2>$null
+	if(-not $?) {
+		write-error $error[0]
+		return
+	}
 	$Host.UI.RawUI.WindowTitle = pwd | split-path -leaf
 }
 
