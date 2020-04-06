@@ -32,6 +32,9 @@ scoop install vlc
 choco install spotify -y
 
 # Tools
+scoop install fd
+scoop install dust
+scoop install bat
 scoop install fzf
 scoop install ripgrep
 scoop install sharex
