@@ -4,7 +4,7 @@ arch
 wsl sed -i '85s/#//' /etc/sudoers
 wsl useradd -m -G wheel matheus
 arch config --default-user matheus
-wsl passwd matheus
+wsl sudo passwd matheus
 
 wsl sudo pacman-key --init
 wsl sudo pacman-key --populate archlinux
