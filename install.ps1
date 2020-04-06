@@ -32,6 +32,7 @@ scoop install vlc
 choco install spotify -y
 
 # Tools
+scoop install less
 scoop install fd
 scoop install bat
 scoop install fzf
