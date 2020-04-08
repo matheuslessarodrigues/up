@@ -8,9 +8,9 @@ $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 
 Set-Alias -name vim -value nvim-qt.exe -force
 Set-Alias -name which -value where.exe -force
-Set-Alias -name cat -value bat.exe -force
 Remove-Alias -name cd -force
 Remove-Alias -name ls -force
+Remove-Alias -name cat -force
 
 $alacritty_profile = "$env:APPDATA/alacritty/alacritty.yml"
 
@@ -32,7 +32,10 @@ function clip {
 }
 
 function ls {
-	param([parameter(position=0,mandatory=$false,ValueFromPipeline=$true)]$location)
+	param(
+		[parameter(position=0,mandatory=$false,ValueFromPipeline=$true)]$location,
+		[switch]$hidden
+	)
 	$saved_pwd = pwd
 	if($location) {
 		set-location $location 2>$null
@@ -41,18 +44,29 @@ function ls {
 			return
 		}
 	}
-	fd -d 1
+	if($hidden -eq $true) {
+		fd -d 1 --hidden
+	} else {
+		fd -d 1
+	}
 	set-location $saved_pwd
 }
 
 function cd {
-	param([parameter(position=0,mandatory=$false,ValueFromPipeline=$true)]$location)
+	param([parameter(mandatory=$false,ValueFromPipeline=$true)]$location)
 	set-location $location 2>$null
 	if(-not $?) {
 		write-error $error[0]
 		return
 	}
 	$Host.UI.RawUI.WindowTitle = pwd | split-path -leaf
+}
+
+function cat {
+	param([parameter(mandatory=$false,ValueFromRemainingArguments=$true)]$remaining)
+	begin {
+		bat --style snip @remaining
+	}
 }
 
 function ff {
