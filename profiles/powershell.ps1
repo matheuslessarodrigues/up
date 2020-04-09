@@ -66,6 +66,7 @@ function cat {
 	param([parameter(mandatory=$false,ValueFromRemainingArguments=$true)]$remaining)
 	begin {
 		bat --style snip @remaining
+		[Console]::ResetColor()
 	}
 }
 
