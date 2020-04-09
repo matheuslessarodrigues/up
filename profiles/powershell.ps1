@@ -8,6 +8,8 @@ $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 
 Set-Alias -name vim -value nvim-qt.exe -force
 Set-Alias -name which -value where.exe -force
+Set-Alias -name uniq -value get-unique -force
+
 Remove-Alias -name cd -force
 Remove-Alias -name ls -force
 Remove-Alias -name cat -force
