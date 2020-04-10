@@ -8,10 +8,9 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 
 # Main
 scoop install Cascadia-Code
-# scoop install alacritty
 scoop install windows-terminal
-scoop install firefox
 scoop install pwsh
+scoop install firefox
 
 $shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
 rm -force $shortcut_path
@@ -39,7 +38,6 @@ scoop install fzf
 scoop install ripgrep
 scoop install dust
 scoop install sharex
-scoop install windirstat
 
 # Communication
 scoop install telegram
