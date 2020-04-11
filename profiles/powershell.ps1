@@ -14,8 +14,6 @@ Remove-Alias -name cd -force
 Remove-Alias -name ls -force
 Remove-Alias -name cat -force
 
-$alacritty_profile = "$env:APPDATA/alacritty/alacritty.yml"
-
 function clip {
 	param([parameter(position=0,mandatory=$true,ValueFromPipeline=$true)]$text)
 	begin {
