@@ -136,4 +136,6 @@ function git-clone {
 	}
 }
 
-cd $env:workspace
+if((pwd).Path -eq $home) {
+	cd $env:workspace
+}
