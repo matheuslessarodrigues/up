@@ -6,7 +6,7 @@ $env:BAT_PAGER="less -FR --no-init"
 $env:FZF_DEFAULT_COMMAND='fd --type f'
 $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 
-Set-Alias -name vim -value nvim-qt.exe -force
+Set-Alias -name vim -value nvim -force
 Set-Alias -name which -value where.exe -force
 Set-Alias -name uniq -value get-unique -force
 
