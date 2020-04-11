@@ -11,6 +11,7 @@ scoop install Cascadia-Code
 scoop install windows-terminal
 scoop install pwsh
 scoop install firefox
+scoop install busybox
 
 $shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
 rm -force $shortcut_path
