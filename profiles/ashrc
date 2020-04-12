@@ -1,0 +1,25 @@
+export FZF_DEFAULT_COMMAND='fd --type f'
+export DOTNET_CLI_TELEMETRY_OPTOUT=True
+
+download_profiles() {
+	curl -s 'https://raw.githubusercontent.com/matheuslessarodrigues/up/master/download-profiles.sh' | sh
+}
+
+download_omnisharp_config() {
+	curl 'https://raw.githubusercontent.com/matheuslessarodrigues/up/master/profiles/omnisharp.json' -O
+}
+
+ssh_keygen() {
+	git bash --cd-to-home --hide -c "ssh-keygen -q -t rsa -f .ssh/$1 -N ''"
+	cat "$HOME/.ssh/$1.pub"
+}
+
+ff() {
+	currentPath=$(printf "%s/" `pwd`)
+	file=`fzf --layout=reverse --prompt=$currentPath --no-sort --filepath-word --preview="cat {}"`
+	if [ -e $file ]
+	then
+		echo $file
+		printf "%s" $file | clip
+	fi
+}
