@@ -1,17 +1,23 @@
 shell:
-  program: wsl
+  program: ash
+  args: [-l]
 
 env:
   COLORTERM: truecolor
-  FZF_DEFAULT_COMMAND: rg --files . --glob "!*.meta" 2> nul
-
-tabspaces: 4
 
 window:
-  dimensions:
-   columns: 140
-   lines: 50
   startup_mode: Maximized
+
+font:
+  normal:
+    family: Cascadia Code
+  bold:
+    family: Cascadia Code
+  italic:
+    family: Cascadia Code
+  bold_italic:
+    family: Cascadia Code
+  size: 11
 
 # Colors (Gruvbox dark)
 colors:
@@ -44,8 +50,4 @@ colors:
     cyan:    '#8ec07c'
     white:   '#ebdbb2'
 
-key_bindings:
-  - { key: C, mods: Shift|Control, action: Copy }
-  - { key: V, mods: Control, action: Paste }
-  - { key: Back, mods: Control, chars: "\x17" }
-  - { key: Delete, mods: Control, chars: "\x1bD" }
+#winpty_backend: false
