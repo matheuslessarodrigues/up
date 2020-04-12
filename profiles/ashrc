@@ -20,6 +20,6 @@ ff() {
 	if [ -e $file ]
 	then
 		echo $file
-		printf "%s" $file | clip
+		echo -n $file | clip
 	fi
 }
