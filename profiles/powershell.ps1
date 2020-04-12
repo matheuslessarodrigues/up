@@ -80,7 +80,7 @@ function set-workspace-here {
 
 function download-profiles {
 	Set-ExecutionPolicy Bypass -Scope Process -Force
-	curl.exe "https://raw.githubusercontent.com/matheuslessarodrigues/up/master/download-profiles.ps1" | invoke-expression
+	(curl.exe "https://raw.githubusercontent.com/matheuslessarodrigues/up/master/download-profiles.ps1") -join "`n" | invoke-expression
 }
 
 function download-omnisharp-config {
