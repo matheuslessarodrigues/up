@@ -10,8 +10,8 @@ invoke-webrequest -useb https://chocolatey.org/install.ps1 | invoke-expression
 scoop install Cascadia-Code
 scoop install windows-terminal
 scoop install pwsh
-scoop install firefox
 scoop install busybox
+scoop install firefox
 
 $shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
 rm -force $shortcut_path
@@ -29,9 +29,7 @@ scoop install vlc
 choco install spotify -y
 
 # Tools
-scoop install less
 scoop install fd
-scoop install bat
 scoop install fzf
 scoop install ripgrep
 scoop install dust
