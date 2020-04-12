@@ -1,10 +1,10 @@
 # Install Package Managers
-iwr -useb get.scoop.sh | iex
+invoke-webrequest -useb get.scoop.sh | invoke-expression
 scoop install git
 scoop bucket add extras
 scoop bucket add nerd-fonts
 
-iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+invoke-webrequest -useb https://chocolatey.org/install.ps1 | invoke-expression
 
 # Main
 scoop install Cascadia-Code
@@ -15,15 +15,12 @@ scoop install busybox
 
 $shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
 rm -force $shortcut_path
-$shell = New-Object -ComObject WScript.Shell
+$shell = new-object -comobject WScript.Shell
 $pwsh_shortcut = $shell.CreateShortcut($shortcut_path)
 $target_path = scoop which wt | resolve-path | select -ExpandProperty Path
 $pwsh_shortcut.TargetPath = $target_path
 $pwsh_shortcut.WorkingDirectory = $target_path | split-path -Parent
 $pwsh_shortcut.Save()
-
-# Enable WSL
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -NoRestart
 
 # Media
 scoop install reaper
@@ -88,6 +85,4 @@ echo ""
 echo ""
 echo "DOWNLOAD PROFILES"
 echo ""
-echo "iwr -useb https://raw.githubusercontent.com/matheuslessarodrigues/up/master/profiles/download-profiles.ps1 | iex"
-echo ""
-echo "A restart is needed before WSL config"
+echo "invoke-webrequest -useb https://raw.githubusercontent.com/matheuslessarodrigues/up/master/profiles/download-profiles.ps1 | invoke-expression"
