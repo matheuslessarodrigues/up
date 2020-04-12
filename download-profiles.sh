@@ -10,7 +10,10 @@ download "gitconfig" "$HOME/.gitconfig"
 download "mercurial.ini" "$HOME/mercurial.ini"
 download "update-wallpaper.ps1" "$HOME/update-wallpaper.ps1"
 
-fd -d 1 -t d . $APPDATA/Mozilla/Firefox/Profiles -x sh -c "download firefox.js \"{}user.js\""
+for d in `find $APPDATA/Mozilla/Firefox/Profiles -maxdepth 1 -type d`
+do
+  download firefox.js "$d/user.js"
+done
 
 echo ""
 echo "all profiles updated!"
