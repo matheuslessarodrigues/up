@@ -2,12 +2,10 @@ set-psreadlinekeyhandler -key Ctrl+m -function AcceptLine
 set-psreadlinekeyhandler -key Ctrl+w -function BackwardKillWord
 set-psreadlinekeyhandler -key Tab -function MenuComplete
 
-$env:BAT_PAGER="less -FR"
 $env:FZF_DEFAULT_COMMAND='fd --type f'
 $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 
 get-alias | remove-alias -force
-set-alias -name vim -value nvim -force
 
 function clip {
 	param([parameter(position=0,mandatory=$true,ValueFromPipeline=$true)]$text)
@@ -36,41 +34,12 @@ function cd {
 	$Host.UI.RawUI.WindowTitle = pwd | split-path -leaf
 }
 
-function cat {
-	param([parameter(mandatory=$false,ValueFromRemainingArguments=$true)]$remaining)
-	begin {
-		bat --style snip @remaining
-		[Console]::ResetColor()
-	}
-}
-
 function ff {
 	$currentPath = (pwd).Path + "\"
 	$file = fzf --layout=reverse --prompt=$currentPath --no-sort --filepath-word --preview="bat {} --paging never --line-range :50 --style snip --color always"
 	if($file) {
 		write-host $file
 		$file | clip
-	}
-}
-
-function fp {
-	param([parameter(position=0,mandatory=$true,ValueFromPipeline=$true)]$text)
-	begin {
-		$data = [System.Text.StringBuilder]::new()
-	}
-	process {
-		if($text) {
-			[void]$data.AppendLine($text)
-		}
-	}
-	end {
-		if($data) {
-			$selection = $data.ToString().Trim() | fzf --layout=reverse --no-sort
-			if($selection) {
-				write-host $selection
-				$selection | clip
-			}
-		}
 	}
 }
 
