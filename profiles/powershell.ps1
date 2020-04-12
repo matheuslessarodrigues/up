@@ -1,6 +1,6 @@
-Set-PSReadlineKeyHandler -key Ctrl+m -function AcceptLine
-Set-PSReadlineKeyHandler -key Ctrl+w -function BackwardKillWord
-Set-PSReadlineKeyHandler -key Tab -function MenuComplete
+set-psreadlinekeyhandler -key Ctrl+m -function AcceptLine
+set-psreadlinekeyhandler -key Ctrl+w -function BackwardKillWord
+set-psreadlinekeyhandler -key Tab -function MenuComplete
 
 $env:BAT_PAGER="less -FR --no-init"
 $env:FZF_DEFAULT_COMMAND='fd --type f'
@@ -80,7 +80,7 @@ function set-workspace-here {
 
 function download-profiles {
 	Set-ExecutionPolicy Bypass -Scope Process -Force
-	iwr -useb "https://raw.githubusercontent.com/matheuslessarodrigues/up/master/profiles/download-profiles.ps1" | iex
+	curl.exe "https://raw.githubusercontent.com/matheuslessarodrigues/up/master/profiles/download-profiles.ps1" | invoke-expression
 }
 
 function download-omnisharp-config {
@@ -110,6 +110,6 @@ function git-clone {
 	}
 }
 
-if((pwd).Path -eq $home) {
+if((get-location).Path -eq $home) {
 	cd $env:workspace
 }
