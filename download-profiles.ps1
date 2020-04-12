@@ -10,7 +10,7 @@ download "gitconfig" "$home\.gitconfig"
 download "mercurial.ini" "$home\mercurial.ini"
 download "update-wallpaper.ps1" "$home\update-wallpaper.ps1"
 
-get-childitem -path "$env:APPDATA/Mozilla/Firefox/Profiles" -Directory | select-object {download "firefox.js" (join-path $_.FullName "user.js")}
+get-childitem -path "$env:APPDATA/Mozilla/Firefox/Profiles" -directory | foreach-object {download "firefox.js" (join-path $_.FullName "user.js")}
 
 write-host ""
 write-host "all profiles updated!"
