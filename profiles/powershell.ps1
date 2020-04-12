@@ -7,23 +7,6 @@ $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 
 get-alias | remove-alias -force
 
-function clip {
-	param([parameter(position=0,mandatory=$true,ValueFromPipeline=$true)]$text)
-	begin {
-		$data = [System.Text.StringBuilder]::new()
-	}
-	process {
-		if($text) {
-			[void]$data.AppendLine($text)
-		}
-	}
-	end {
-		if($data) {
-			$data.ToString().TrimEnd([Environment]::NewLine) + [Convert]::ToChar(0) | clip.exe
-		}
-	}
-}
-
 function cd {
 	param([parameter(mandatory=$false,ValueFromPipeline=$true)]$location)
 	set-location $location 2>$null
