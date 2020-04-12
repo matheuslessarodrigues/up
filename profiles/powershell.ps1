@@ -2,7 +2,7 @@ set-psreadlinekeyhandler -key Ctrl+m -function AcceptLine
 set-psreadlinekeyhandler -key Ctrl+w -function BackwardKillWord
 set-psreadlinekeyhandler -key Tab -function MenuComplete
 
-$env:BAT_PAGER="less -FR --no-init"
+$env:BAT_PAGER="less -FR"
 $env:FZF_DEFAULT_COMMAND='fd --type f'
 $env:DOTNET_CLI_TELEMETRY_OPTOUT=$true
 
@@ -79,8 +79,8 @@ function set-workspace-here {
 }
 
 function download-profiles {
-	set-executionpolicy Bypass -scope Process -force
-	invoke-webrequest -useb "https://raw.githubusercontent.com/matheuslessarodrigues/up/master/download-profiles.ps1" | invoke-expression
+	Set-ExecutionPolicy Bypass -Scope Process -Force
+	(curl.exe "https://raw.githubusercontent.com/matheuslessarodrigues/up/master/download-profiles.ps1") -join "`n" | invoke-expression
 }
 
 function download-omnisharp-config {
