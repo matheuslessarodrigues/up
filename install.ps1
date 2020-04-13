@@ -58,6 +58,7 @@ $env:Path += ";$msbuild_path"
 
 # Rust Tools
 cargo install verco
+cargo install copycat
 
 # Registry
 ## map capslock to esc
