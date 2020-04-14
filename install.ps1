@@ -31,7 +31,6 @@ choco install spotify -y
 scoop install fd
 scoop install fzf
 scoop install ripgrep
-scoop install dust
 scoop install sharex
 
 # Communication
