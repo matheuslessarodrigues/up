@@ -13,12 +13,12 @@ scoop install busybox
 scoop install firefox
 
 $shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
-rm -force $shortcut_path
+remove-item -force $shortcut_path
 $shell = new-object -comobject WScript.Shell
 $pwsh_shortcut = $shell.CreateShortcut($shortcut_path)
-$target_path = scoop which wt | resolve-path | select -ExpandProperty Path
+$target_path = scoop which wt | resolve-path | select -expandproperty Path
 $pwsh_shortcut.TargetPath = $target_path
-$pwsh_shortcut.WorkingDirectory = $target_path | split-path -Parent
+$pwsh_shortcut.WorkingDirectory = $target_path | split-path -parent
 $pwsh_shortcut.Save()
 
 # Media
@@ -78,8 +78,8 @@ $task = New-ScheduledTask -Action $action -Principal $principal -Trigger $trigge
 Register-ScheduledTask UpdateWallpaper -InputObject $task -Force
 
 # Print Command to update profiles
-echo ""
-echo ""
-echo "DOWNLOAD PROFILES"
-echo ""
-echo "invoke-webrequest -useb https://raw.githubusercontent.com/matheuslessarodrigues/up/master/profiles/download-profiles.ps1 | invoke-expression"
+write-output ""
+write-output ""
+write-output "DOWNLOAD PROFILES"
+write-output ""
+write-output "invoke-webrequest -useb https://raw.githubusercontent.com/matheuslessarodrigues/up/master/profiles/download-profiles.ps1 | invoke-expression"
