@@ -4,7 +4,7 @@ download() {
 }
 
 download "ashrc" "$HOME/.profile"
-download "windows-terminal.json" "$LOCALAPPDATA/Microsoft/Windows Terminal/profiles.json"
+download "windows-terminal.json" "$LOCALAPPDATA/Microsoft/Windows Terminal/settings.json"
 download "sshconfig" "$HOME/.ssh/config"
 download "gitconfig" "$HOME/.gitconfig"
 download "mercurial.ini" "$HOME/mercurial.ini"
