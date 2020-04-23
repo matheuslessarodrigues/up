@@ -18,9 +18,17 @@
 				"hidden": false,
 				"name": "shell",
 				"commandline": "%HOMEPATH%/scoop/apps/busybox/current/busybox.exe sh -l"
+			},
+			{
+			    "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+			    "hidden": true,
+			    "name": "Azure Cloud Shell",
+			    "source": "Windows.Terminal.Azure"
 			}
 		]
 	},
+	"copyOnSelect": false,
+	"copyFormatting": false,
 	"schemes": [
 		{
 			"name": "Gruvbox Dark",
@@ -46,6 +54,14 @@
 	],
 	"keybindings": [
 		{
+			"command": null,
+			"keys": "ctrl+shift+c"
+		},
+		{
+			"command": null,
+			"keys": "ctrl+shift+v"
+		},
+		{
 			"command": "newTab",
 			"keys": "alt+t"
 		},
@@ -54,7 +70,10 @@
 			"keys": "alt+w"
 		},
 		{
-			"command": "copyTextWithoutNewlines",
+			"command": {
+				"action": "copy",
+				"singleLine": false
+			},
 			"keys": "ctrl+c"
 		},
 		{
@@ -62,12 +81,12 @@
 			"keys": "ctrl+v"
 		},
 		{
-			"command": "splitVertical",
-			"keys": "alt+v"
-		},
-		{
-			"command": "splitHorizontal",
-			"keys": "alt+h"
+			"command": {
+				"action": "splitPane",
+				"split": "auto",
+				"splitMode": "duplicate"
+			},
+			"keys": "shift+tab"
 		}
 	],
 	"initialCols": 120,
