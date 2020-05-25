@@ -26,6 +26,7 @@ scoop install reaper
 scoop install vlc
 
 choco install spotify -y
+choco install asio4all -y
 
 # Tools
 scoop install fd
