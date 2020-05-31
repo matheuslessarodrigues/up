@@ -63,11 +63,11 @@
 		},
 		{
 			"command": "newTab",
-			"keys": "alt+t"
+			"keys": "ctrl+shift+t"
 		},
 		{
 			"command": "closePane",
-			"keys": "alt+w"
+			"keys": "ctrl+shift+w"
 		},
 		{
 			"command": {
