@@ -46,6 +46,7 @@ code --install-extension Shan.code-settings-sync
 
 scoop install dotnet-sdk
 scoop install rustup-msvc
+scoop install rust-analyzer
 
 choco install unity-hub -y
 choco install visualstudio2019-workload-vctools -y
