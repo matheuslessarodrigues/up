@@ -3,7 +3,7 @@
 	"defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
 	"profiles": {
 		"defaults": {
-			"cursorColor": "#7c6f64",
+			"cursorColor": "#888888",
 			"cursorShape": "filledBox",
 			"fontFace": "Cascadia Code",
 			"fontSize": 10,
