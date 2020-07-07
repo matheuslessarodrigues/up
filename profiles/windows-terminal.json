@@ -50,6 +50,14 @@
 	"keybindings": [
 		{
 			"command": null,
+			"keys": "ctrl+,"
+		},
+		{
+			"command": "openSettings",
+			"keys": "ctrl+shift+,"
+		},
+		{
+			"command": null,
 			"keys": "ctrl+shift+c"
 		},
 		{
