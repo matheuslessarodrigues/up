@@ -29,7 +29,6 @@ choco install spotify -y
 choco install asio4all -y
 
 # Tools
-scoop install lsd
 scoop install fd
 scoop install fzf
 scoop install ripgrep
