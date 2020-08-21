@@ -5,7 +5,7 @@
 		"defaults": {
 			"cursorColor": "#ffffff",
 			"cursorShape": "filledBox",
-			"fontFace": "Cascadia Code",
+			"fontFace": "CaskaydiaCove NF",
 			"fontSize": 10,
 			"hidden": true,
 			"padding": "0,0,0,0",
