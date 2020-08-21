@@ -7,7 +7,7 @@ scoop bucket add nerd-fonts
 invoke-webrequest -useb https://chocolatey.org/install.ps1 | invoke-expression
 
 # Main
-scoop install Cascadia-Code
+scoop install cascadiacode-nf
 scoop install windows-terminal
 scoop install busybox
 scoop install firefox
@@ -29,6 +29,7 @@ choco install spotify -y
 choco install asio4all -y
 
 # Tools
+scoop install lsd
 scoop install fd
 scoop install fzf
 scoop install ripgrep
