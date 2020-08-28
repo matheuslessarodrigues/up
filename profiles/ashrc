@@ -1,6 +1,5 @@
 export FZF_DEFAULT_COMMAND='fd --type f --path-separator /'
 export DOTNET_CLI_TELEMETRY_OPTOUT=True
-export PEPPERC='C:\Users\Matheus\pepperc'
 
 alias ls='ls -Aph --group-directories-first'
 alias clip=copycat
