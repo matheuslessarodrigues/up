@@ -90,6 +90,14 @@
 				"splitMode": "duplicate"
 			},
 			"keys": "shift+tab"
+		},
+		{
+			"command": {
+				"action": "splitPane",
+				"split": "horizontal",
+				"commandline": "%HOMEPATH%/scoop/apps/busybox/current/busybox.exe bash -c \"cd $(cat ~/pepperdir); fzf | xargs -rI FILE pepper --as-focused-client \\\"FILE\\\"\"; rm ~/pepperdir"
+			},
+			"keys": "ctrl+shift+alt+p"
 		}
 	],
 	"initialCols": 120,
