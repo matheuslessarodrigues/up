@@ -24,6 +24,8 @@
 	},
 	"copyOnSelect": false,
 	"copyFormatting": false,
+	"useTabSwitcher": false,
+	"confirmCloseAllTabs": false,
 	"schemes": [
 		{
 			"name": "Gruvbox Dark",
