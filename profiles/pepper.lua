@@ -1,18 +1,17 @@
-mapn("qq", ":quit()<c-m>")
-mapn("<c-s>", ":save()<c-m>")
-maps("c", "di")
+keymap.normal("qq", ":quit()<enter>")
+keymap.normal("<c-s>", ":save()<enter>")
 
 function fzf_conhost()
-	local client_arg = "--as-client " .. client_index()
-	local command = [["fzf | xargs -rI FILE pepper ]] .. client_arg .. [[ \"FILE\"]]
-	spawn("conhost", {"sh", "-c", command})
+	local client_arg = "--as-client " .. client.index()
+	local command = [[fzf | xargs -rI FILE pepper ]] .. client_arg .. [[ FILE]]
+	process.spawn("conhost", {"sh", "-c", command})
 end
 function fzf_windows_terminal()
-	pipe("sh", {"-c", "pwd > ~/pepperdir"})
-	command = [[Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait("^+%p")]]
-	spawn("powershell", {"-noprofile", "-nologo", "-noninteractive", "-command", command})
+	command = [[Add-Type -AssemblyName System.Windows.Forms; $env:pwd > "$home/pepperdir"; [System.Windows.Forms.SendKeys]::SendWait("^+%p")]]
+	process.spawn("powershell", {"-noprofile", "-nologo", "-noninteractive", "-command", command})
 end
 function fzf()
-	fzf_conhost()
+	--fzf_conhost()
+	fzf_windows_terminal()
 end
-mapn("<c-p>", ":fzf()<c-m>")
+keymap.normal("<c-o>", ":fzf()<enter>")
