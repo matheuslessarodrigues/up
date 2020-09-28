@@ -7,7 +7,7 @@ function fzf_conhost()
 	process.spawn("conhost", {"sh", "-c", command})
 end
 function fzf_windows_terminal()
-	command = [[Add-Type -AssemblyName System.Windows.Forms; $env:pwd > "$home/pepperdir"; [System.Windows.Forms.SendKeys]::SendWait("^+%p")]]
+	command = [[Add-Type -AssemblyName System.Windows.Forms; "$pwd" | out-file -encoding ASCII "$home/pepperdir"; [System.Windows.Forms.SendKeys]::SendWait("^+%p")]]
 	process.spawn("powershell", {"-noprofile", "-nologo", "-noninteractive", "-command", command})
 end
 function fzf()
