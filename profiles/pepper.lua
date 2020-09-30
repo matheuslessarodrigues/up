@@ -40,15 +40,15 @@ for i,k in ipairs({"null", "this", "true", "false"}) do
 	syntax.rule("cs", "literal", k);
 end
 
-syntax.rule("literal", "%d{%w%._}");
-syntax.rule("string", "'{(\\')!'.}");
-syntax.rule("string", "\"{(\\\")!\".}");
+syntax.rule("cs", "literal", "%d{%w%._}");
+syntax.rule("cs", "string", "'{(\\')!'.}");
+syntax.rule("cs", "string", "\"{(\\\")!\".}");
 
 syntax.rule("cs", "text", "%a{%w_}")
 syntax.rule("cs", "text", "_{%w_}")
 
 -- javascript
-local keywords = {"break", "export", "super", "case", "extends", "switch", "catch", "finally", "class", "for", "throw", "const", "function", "try", "continue", "if", "typeof", "debugger", "import", "var", "default", "in", "void", "delete", "instanceof", "while", "do", "new", "with", "else", "return", "yield", "enum", "implements", "package", "public", "interface", "private", "static", "let", "protected", "yield", "await", "abstract", "float", "synchronized", "boolean", "goto", "throws", "byte", "int", "transient", "char", "long", "volatile", "double", "native", "final", "short", "arguments", "get", "set"}
+local keywords = {"break", "export", "super", "case", "extends", "switch", "catch", "finally", "class", "for", "throw", "const", "function", "try", "continue", "if", "typeof", "debugger", "import", "var", "default", "in", "void", "delete", "instanceof", "while", "do", "new", "with", "else", "return", "yield", "enum", "implements", "package", "public", "interface", "private", "static", "let", "protected", "yield", "async", "await", "abstract", "float", "synchronized", "boolean", "goto", "throws", "byte", "int", "transient", "char", "long", "volatile", "double", "native", "final", "short", "arguments", "get", "set"}
 for i,k in ipairs(keywords) do
 	syntax.rule("js", "keyword", k)
 end
