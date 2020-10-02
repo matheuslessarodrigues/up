@@ -9,6 +9,7 @@ download "sshconfig" "$HOME/.ssh/config"
 download "gitconfig" "$HOME/.gitconfig"
 download "mercurial.ini" "$HOME/mercurial.ini"
 download "update-wallpaper.ps1" "$HOME/update-wallpaper.ps1"
+download "pepper.lua" "$HOME/pepper.lua"
 
 for d in `find $APPDATA/Mozilla/Firefox/Profiles -mindepth 1 -maxdepth 1 -type d`
 do
