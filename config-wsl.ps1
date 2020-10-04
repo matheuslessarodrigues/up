@@ -2,7 +2,7 @@ scoop install archwsl
 
 wsl sed -i '85s/#//' /etc/sudoers
 wsl useradd -m -G wheel matheus
-arch.exe config --default-user matheus
+arch config --default-user matheus
 wsl sudo passwd matheus
 
 wsl sudo pacman-key --init
