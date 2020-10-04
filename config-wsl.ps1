@@ -23,6 +23,7 @@ wsl sudo pacman -Sy neovim --noconfirm
 wsl sudo pacman -Sy kakoune --noconfirm
 wsl sudo pacman -Sy kak-lsp --noconfirm
 
+wsl sudo pacman -Sy gcc --noconfirm
 wsl sudo pacman -Sy rustup --noconfirm
 wsl rustup toolchain install stable
 wsl cargo install verco
