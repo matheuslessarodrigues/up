@@ -20,6 +20,9 @@ wsl sudo pacman -Sy fd --noconfirm
 wsl sudo pacman -Sy ripgrep --noconfirm
 
 wsl sudo pacman -Sy neovim --noconfirm
+wsl sudo pacman -Sy nodejs --noconfirm
+wsl sudo pacman -Sy npm --noconfirm
+
 wsl sudo pacman -Sy kakoune --noconfirm
 wsl sudo pacman -Sy kak-lsp --noconfirm
 
