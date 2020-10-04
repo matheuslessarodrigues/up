@@ -33,3 +33,4 @@ wsl cargo install verco
 
 wsl sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 wsl sudo chsh -s /bin/zsh matheus
+wsl mkdir '~/.ssh'
