@@ -41,8 +41,6 @@ scoop install discord
 # Dev
 scoop install mercurial
 scoop install putty
-scoop install vscode-portable
-code --install-extension Shan.code-settings-sync
 
 scoop install dotnet-sdk
 scoop install rustup-msvc
