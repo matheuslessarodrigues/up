@@ -10,11 +10,6 @@ download "gitconfig" "$HOME/.gitconfig"
 download "mercurial.ini" "$HOME/mercurial.ini"
 download "update-wallpaper.ps1" "$HOME/update-wallpaper.ps1"
 
-download "pepper/init.lua" "$HOME/pepper/init.lua"
-download "pepper/fzf.lua" "$HOME/pepper/fzf.lua"
-download "pepper/cs.lua" "$HOME/pepper/cs.lua"
-download "pepper/js.lua" "$HOME/pepper/js.lua"
-
 for d in `find $APPDATA/Mozilla/Firefox/Profiles -mindepth 1 -maxdepth 1 -type d`
 do
   download firefox.js "$d/user.js"
