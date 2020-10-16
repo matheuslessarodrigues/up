@@ -66,9 +66,9 @@
 			"command": {
 				"action": "splitPane",
 				"split": "horizontal",
-				"commandline": "%HOMEPATH%/scoop/apps/busybox/current/busybox.exe bash -c \"cd $(cat ~/pepperdir | tr \\\\ /); fd -tf --path-separator / . | fzf | xargs -rI FILE pepper --as-focused-client \\\"FILE\\\"\"; rm ~/pepperdir"
+				"commandline": "%HOMEPATH%/scoop/apps/busybox/current/busybox.exe bash %HOMEPATH%/pepper-command"
 			},
-			"keys": "ctrl+shift+alt+p"
+			"keys": "ctrl+shift+alt+f5"
 		}
 	],
 	"initialCols": 120,
