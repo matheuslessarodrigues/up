@@ -8,7 +8,7 @@ alias clip=copycat
 alias fd='fd --path-separator /'
 alias rg='rg --path-separator /'
 alias make=mingw32-make
-alias pp='pepper -c ~/pepper/init.lua'
+alias pp='pepper -c ~/pepper-config/init.lua'
 
 open() {
 	cmd /C "start $1"
