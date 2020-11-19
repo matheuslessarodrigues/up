@@ -32,6 +32,7 @@ choco install asio4all -y
 scoop install fd
 scoop install fzf
 scoop install ripgrep
+scoop install sd
 scoop install sharex
 
 # Communication
