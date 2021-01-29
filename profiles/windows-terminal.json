@@ -19,6 +19,18 @@
 				"hidden": false,
 				"name": "shell",
 				"commandline": "%HOMEPATH%/scoop/apps/busybox/current/busybox.exe bash -l"
+			},
+			{
+			    "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+			    "hidden": true,
+			    "name": "Azure Cloud Shell",
+			    "source": "Windows.Terminal.Azure"
+			},
+			{
+			    "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
+			    "hidden": true,
+			    "name": "Arch",
+			    "source": "Windows.Terminal.Wsl"
 			}
 		]
 	},
@@ -49,11 +61,12 @@
 			"yellow": "#D79921"
 		}
 	],
-	"keybindings": [
+	"actions": [
 		{ "command": null, "keys": "ctrl+," },
 		{ "command": "openSettings", "keys": "ctrl+shift+," },
 		{ "command": null, "keys": "ctrl+shift+c" },
-		{ "command": null, "keys": "ctrl+shift+v" }, { "command": "newTab", "keys": "ctrl+shift+t" },
+		{ "command": null, "keys": "ctrl+shift+v" },
+		{ "command": "newTab", "keys": "ctrl+shift+t" },
 		{ "command": "closePane", "keys": "ctrl+shift+w" },
 		{ "command": { "action": "copy", "singleLine": false }, "keys": "ctrl+c" },
 		{ "command": "paste", "keys": "ctrl+v" },
