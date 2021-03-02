@@ -10,7 +10,7 @@
 		"defaults": {
 			"cursorColor": "#7C6F64",
 			"cursorShape": "filledBox",
-			"fontFace": "CaskaydiaCove NF",
+			"fontFace": "Cascadia Mono",
 			"fontSize": 10,
 			"hidden": true,
 			"padding": "0,0,0,0",
