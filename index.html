@@ -1,1 +1,1 @@
-set-executionpolicy Bypass -scope Process -force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; (curl.exe -s https://raw.githubusercontent.com/matheuslessarodrigues/up/master/install.ps1) -join "`n" | invoke-expression
+set-executionpolicy Bypass -scope Process -force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; (curl.exe -s https://raw.githubusercontent.com/vamolessa/up/master/install.ps1) -join "`n" | invoke-expression
