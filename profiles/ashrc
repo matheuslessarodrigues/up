@@ -22,11 +22,6 @@ download_omnisharp_config() {
 	curl 'https://raw.githubusercontent.com/vamolessa/up/master/profiles/omnisharp.json' -O
 }
 
-ssh_keygen() {
-	git bash --cd-to-home --hide -c "ssh-keygen -q -t rsa -f .ssh/$1 -N ''"
-	cat "$HOME/.ssh/$1.pub"
-}
-
 ff() {
 	currentPath=$(printf "%s/" `pwd`)
 	file=`fzf --layout=reverse --prompt=$currentPath --no-sort --filepath-word --preview="cat {}"`
