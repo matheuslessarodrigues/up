@@ -15,11 +15,11 @@ open() {
 }
 
 download_profiles() {
-	curl -s 'https://raw.githubusercontent.com/matheuslessarodrigues/up/master/download-profiles.sh' | sh
+	curl -s 'https://raw.githubusercontent.com/vamolessa/up/master/download-profiles.sh' | sh
 }
 
 download_omnisharp_config() {
-	curl 'https://raw.githubusercontent.com/matheuslessarodrigues/up/master/profiles/omnisharp.json' -O
+	curl 'https://raw.githubusercontent.com/vamolessa/up/master/profiles/omnisharp.json' -O
 }
 
 ssh_keygen() {
