@@ -1,6 +1,6 @@
 download() {
   echo "downloading $1 to $2..."
-  curl "https://raw.githubusercontent.com/matheuslessarodrigues/up/master/profiles/$1" -s --create-dirs -o "$2"
+  curl "https://raw.githubusercontent.com/vamolessa/up/master/profiles/$1" -s --create-dirs -o "$2"
 }
 
 download "ashrc" "$HOME/.profile"
