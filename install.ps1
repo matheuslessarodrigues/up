@@ -44,7 +44,6 @@ scoop install discord
 scoop install mercurial
 scoop install putty
 
-scoop install dotnet-sdk
 scoop install rustup-msvc
 scoop install rust-analyzer
 
@@ -68,33 +67,6 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Keyboard Layout" /v "Scancode Map
 ## remove bing search
 reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabled /t REG_DWORD /d 0 /f
 reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search /v CortanaConsent /t REG_DWORD /d 0 /f
-## remove vscode explorer integration
-reg delete HKEY_CLASSES_ROOT\*\shell\VSCode /f
-
-# Enable Image Viewer
-cmd.exe /c 'ftype Paint.Picture=%windir%\System32\rundll32.exe "%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll", ImageView_Fullscreen %1'
-cmd.exe /c 'ftype jpegfile=%windir%\System32\rundll32.exe "%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll", ImageView_Fullscreen %1'
-cmd.exe /c 'ftype pngfile=%windir%\System32\rundll32.exe "%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll", ImageView_Fullscreen %1'
-cmd.exe /c 'ftype TIFImage.Document=%windir%\System32\rundll32.exe "%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll", ImageView_Fullscreen %1'
-cmd.exe /c "assoc .bmp=Paint.Picture"
-cmd.exe /c "assoc .jpg=jpegfile"
-cmd.exe /c "assoc .jpeg=jpegfile"
-cmd.exe /c "assoc .png=pngfile"
-cmd.exe /c "assoc .tif=TIFImage.Document"
-cmd.exe /c "assoc .tiff=TIFImage.Document"
-cmd.exe /c "assoc Paint.Picture\DefaultIcon=%SystemRoot%\System32\imageres.dll,-70"
-cmd.exe /c "assoc jpegfile\DefaultIcon=%SystemRoot%\System32\imageres.dll,-72"
-cmd.exe /c "assoc pngfile\DefaultIcon=%SystemRoot%\System32\imageres.dll,-71"
-cmd.exe /c "assoc TIFImage.Document\DefaultIcon=%SystemRoot%\System32\imageres.dll,-122"
-
-# Tasks
-## update wallpaper
-$action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-WindowStyle Hidden -File $home\update-wallpaper.ps1"
-$trigger = New-ScheduledTaskTrigger -AtLogon
-$principal = New-ScheduledTaskPrincipal -UserID "$env:USERDOMAIN\$env:USERNAME" -LogonType S4U -RunLevel Highest
-$settings = New-ScheduledTaskSettingsSet
-$task = New-ScheduledTask -Action $action -Principal $principal -Trigger $trigger -Settings $settings
-Register-ScheduledTask UpdateWallpaper -InputObject $task -Force
 
 # Print Command to update profiles
 write-output ""
