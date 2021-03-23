@@ -23,7 +23,7 @@ $pwsh_shortcut.Save()
 
 # Media
 scoop install reaper
-scoop install vlc
+scoop install mpv
 scoop install steam
 
 choco install spotify -y
