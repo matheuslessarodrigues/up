@@ -5,10 +5,9 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=True
 
 alias ls='ls -Aph --group-directories-first'
 alias clip=copycat
-alias fd='fd --path-separator /'
-alias rg='rg --path-separator /'
-alias make=mingw32-make
-alias pp='pepper -c ~/pepper-config/init.lua'
+alias fd='fd --path-separator / --no-ignore-vcs'
+alias rg='rg --path-separator / --no-ignore-vcs --no-ignore-global'
+alias pp='pepper -c ~/pepper-config/init.pp'
 
 open() {
 	cmd /C "start $1"
