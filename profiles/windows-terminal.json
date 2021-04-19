@@ -25,6 +25,11 @@
 				"hidden": false,
 				"name": "shell",
 				"commandline": "%HOMEPATH%/scoop/apps/busybox/current/busybox.exe bash -l"
+			},
+			{
+				"hidden": true,
+				"name": "verco",
+				"commandline": "verco"
 			}
 		]
 	},
