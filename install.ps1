@@ -16,9 +16,8 @@ $shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows Pow
 remove-item -force $shortcut_path
 $shell = new-object -comobject WScript.Shell
 $pwsh_shortcut = $shell.CreateShortcut($shortcut_path)
-$target_path = scoop which wt | resolve-path | select -expandproperty Path
-$pwsh_shortcut.TargetPath = $target_path
-$pwsh_shortcut.WorkingDirectory = $target_path | split-path -parent
+$pwsh_shortcut.TargetPath = "wt.exe"
+$pwsh_shortcut.WorkingDirectory = ""
 $pwsh_shortcut.Save()
 
 # Media
