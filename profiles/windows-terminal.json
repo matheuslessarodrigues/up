@@ -31,6 +31,7 @@
 	"copyOnSelect": false,
 	"copyFormatting": false,
 	"useTabSwitcher": "disabled",
+	"windowingBehavior": "useExisting",
 	"confirmCloseAllTabs": true,
 	"disableAnimations": true,
 	"initialCols": 120,
@@ -39,7 +40,6 @@
 	"launchMode": "maximized",
 	"actions": [
 		{ "command": null, "keys": "ctrl+," },
-		{ "command": "openSettings", "keys": "ctrl+shift+," },
 		{ "command": null, "keys": "ctrl+shift+c" },
 		{ "command": null, "keys": "ctrl+shift+v" },
 		{ "command": "newTab", "keys": "ctrl+shift+t" },
