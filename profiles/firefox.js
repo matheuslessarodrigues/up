@@ -1,6 +1,9 @@
 // firefox config
 //%APPDATA%\Mozilla\Firefox\Profiles\XXXXXXXX.your_profile_name\user.js
 
+user_pref("general.warnOnAboutConfig", false);
+user_pref("browser.aboutConfig.showWarning", false);
+
 // search engines
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.suggest.searches", false);
