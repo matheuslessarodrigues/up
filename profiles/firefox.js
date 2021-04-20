@@ -12,13 +12,13 @@ user_pref("browser.search.update", false);
 // new tab
 user_pref("browser.urlbar.placeholderName", "DuckDuckGo");
 user_pref("browser.startup.homepage", "about:blank");
-user_pref("browser.newtabpage.enabled", true);
-//user_pref("browser.newtab.url", "about:blank");
+user_pref("browser.newtabpage.enabled", false);
 user_pref("browser.newtabpage.enhanced", false);
-//user_pref("browser.newtab.preload", false);
 user_pref("browser.newtabpage.directory.ping", "");
 user_pref("browser.newtabpage.directory.source", "data:text/plain,{}");
 user_pref("browser.newtabpage.introShown", true);
+user_pref("browser.newtab.url", "about:blank");
+user_pref("browser.newtab.preload", true);
 
 // activity stream
 user_pref("browser.newtabpage.activity-stream.enabled", false);
