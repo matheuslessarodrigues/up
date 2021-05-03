@@ -7,7 +7,7 @@ alias ls='ls -Aph --group-directories-first'
 alias clip=copycat
 alias fd='fd --path-separator /'
 alias rg='rg --no-ignore-global --path-separator /'
-alias pp='pepper -c ~/pepper-config/init.pp'
+alias pp='pepper --config ~/pepper-config/init.pp --try-config project.pp'
 
 open() {
 	cmd /C "start $1"
