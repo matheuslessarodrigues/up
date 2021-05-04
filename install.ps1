@@ -30,7 +30,6 @@ choco install asio4all -y
 
 # Tools
 scoop install fd
-scoop install fzf
 scoop install ripgrep
 scoop install sd
 scoop install sharex
@@ -56,8 +55,9 @@ $env:Path += ";$msbuild_path"
 [System.Environment]::SetEnvironmentVariable("Path",$env:Path,[System.EnvironmentVariableTarget]::Machine)
 
 # Rust Tools
-cargo install verco
 cargo install copycat
+cargo install verco
+cargo install pepper
 cargo install emulsion
 
 # Registry
