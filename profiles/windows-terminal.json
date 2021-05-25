@@ -3,7 +3,7 @@
 	"defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
 	"disabledProfileSources": [
 		"Windows.Terminal.Wsl",
-		"Windows.Terminal.Azure",
+		"Windows.Terminal.Azure", 
 		"Windows.Terminal.PowershellCore"
 	],
 	"profiles": {
@@ -16,6 +16,7 @@
 			"padding": "0,0,0,0",
 			"antialiasingMode": "cleartype",
 			"colorScheme": "Gruvbox Dark",
+			"startingDirectory": "",
 			"bellStyle": "none"
 		},
 		"list": [
@@ -23,7 +24,8 @@
 				"guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
 				"hidden": false,
 				"name": "shell",
-				"commandline": "%HOMEPATH%/scoop/apps/busybox/current/busybox.exe bash -l"
+				"commandline": "%HOMEPATH%/scoop/apps/busybox/current/busybox.exe bash -s -c \"source ~/.profile\"",
+				"startingDirectory": "%HOMEPATH%"
 			},
 			{
 				"hidden": true,
@@ -44,7 +46,6 @@
 	"launchMode": "maximized",
 	"actions": [
 		{ "command": null, "keys": "ctrl+," },
-		{ "command": null, "keys": "ctrl+shitf+," },
 		{ "command": null, "keys": "ctrl+shift+c" },
 		{ "command": null, "keys": "ctrl+shift+v" },
 		{ "command": "newTab", "keys": "ctrl+shift+t" },
