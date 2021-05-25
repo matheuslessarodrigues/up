@@ -46,9 +46,11 @@
 	"launchMode": "maximized",
 	"actions": [
 		{ "command": null, "keys": "ctrl+," },
+		{ "command": null, "keys": "ctrl+shift+," },
 		{ "command": null, "keys": "ctrl+shift+c" },
 		{ "command": null, "keys": "ctrl+shift+v" },
-		{ "command": "newTab", "keys": "ctrl+shift+t" },
+		{ "command": null, "keys": "ctrl+shift+n" },
+		{ "command": "duplicateTab", "keys": "ctrl+shift+t" },
 		{ "command": "closePane", "keys": "ctrl+shift+w" },
 		{ "command": { "action": "copy", "singleLine": false }, "keys": "ctrl+c" },
 		{ "command": "paste", "keys": "ctrl+v" },
