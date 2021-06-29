@@ -9,7 +9,7 @@ invoke-webrequest -useb https://chocolatey.org/install.ps1 | invoke-expression
 # Main
 scoop install cascadia-code
 scoop install windows-terminal
-scoop install pwsh
+scoop install nu
 scoop install firefox
 
 # Media
