@@ -9,16 +9,8 @@ invoke-webrequest -useb https://chocolatey.org/install.ps1 | invoke-expression
 # Main
 scoop install cascadia-code
 scoop install windows-terminal
-scoop install busybox
+scoop install nu
 scoop install firefox
-
-$shortcut_path = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
-remove-item -force $shortcut_path
-$shell = new-object -comobject WScript.Shell
-$pwsh_shortcut = $shell.CreateShortcut($shortcut_path)
-$pwsh_shortcut.TargetPath = "wt.exe"
-$pwsh_shortcut.WorkingDirectory = ""
-$pwsh_shortcut.Save()
 
 # Media
 scoop install reaper
@@ -39,9 +31,6 @@ scoop install telegram
 scoop install discord
 
 # Dev
-scoop install mercurial
-scoop install putty
-
 scoop install rustup-msvc
 scoop install rust-analyzer
 
