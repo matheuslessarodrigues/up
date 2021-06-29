@@ -23,8 +23,8 @@
 			{
 				"guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
 				"hidden": false,
-				"name": "pwsh",
-				"commandline": "%HOMEPATH%/scoop/apps/pwsh/current/pwsh.exe",
+				"name": "nu",
+				"commandline": "%HOMEPATH%/scoop/apps/nu/current/nu.exe",
 				"startingDirectory": "%HOMEPATH%"
 			},
 			{
