@@ -23,6 +23,12 @@
 			{
 				"guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
 				"hidden": false,
+				"name": "cmd",
+				"commandline": "cmd /K %HOMEDRIVE%\\%HOMEPATH%\\cmdrc.bat",
+				"startingDirectory": "%HOMEPATH%"
+			},
+			{
+				"hidden": true,
 				"name": "nu",
 				"commandline": "%HOMEPATH%/scoop/apps/nu/current/nu.exe",
 				"startingDirectory": "%HOMEPATH%"
