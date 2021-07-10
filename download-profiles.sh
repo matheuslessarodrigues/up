@@ -1,19 +1,12 @@
-download() {
-  echo "downloading $1 to $2..."
-  curl "https://raw.githubusercontent.com/vamolessa/up/master/profiles/$1" -s --create-dirs -o "$2"
-}
+set HOME=%HOMEDRIVE%%HOMEPATH%
+set BASEURL=https://raw.githubusercontent.com/vamolessa/up/master/profiles
 
-download "cmdrc.bat" "$HOME/cmdrc.bat"
-download "shrc" "$HOME/.profile"
-download "windows-terminal.json" "$LOCALAPPDATA/Microsoft/Windows Terminal/settings.json"
-download "sshconfig" "$HOME/.ssh/config"
-download "gitconfig" "$HOME/.gitconfig"
-download "mercurial.ini" "$HOME/mercurial.ini"
+curl -s --create-dirs %BASEURL%/cmdrc.bat -o %HOME%\cmdrc.bat
+curl -s --create-dirs %BASEURL%/shrc -o %HOME%\.profile
+curl -s --create-dirs %BASEURL%/windows-terminal.json -o "%LOCALAPPDATA%\Microsoft\Windows Terminal\settings.json"
+curl -s --create-dirs %BASEURL%/sshconfig -o %HOME%\.ssh/config
+curl -s --create-dirs %BASEURL%/gitconfig -o %HOME%\.gitconfig
 
-for d in `find $APPDATA/Mozilla/Firefox/Profiles -mindepth 1 -maxdepth 1 -type d`
-do
-  download firefox.js "$d/user.js"
-done
+for /d %d in (%APPDATA%\Mozilla\Firefox\Profiles\*) do curl -s --create-dirs %BASEURL%/firefox.js -o %d\user.js
 
-echo ""
 echo "all profiles updated!"
