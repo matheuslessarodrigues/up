@@ -3,7 +3,8 @@ download() {
   curl "https://raw.githubusercontent.com/vamolessa/up/master/profiles/$1" -s --create-dirs -o "$2"
 }
 
-download "ashrc" "$HOME/.profile"
+download "cmdrc.bat" "$HOME/cmdrc.bat"
+download "shrc" "$HOME/.profile"
 download "windows-terminal.json" "$LOCALAPPDATA/Microsoft/Windows Terminal/settings.json"
 download "sshconfig" "$HOME/.ssh/config"
 download "gitconfig" "$HOME/.gitconfig"
