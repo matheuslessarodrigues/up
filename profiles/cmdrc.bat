@@ -1,6 +1,7 @@
 @echo off
 
 set HOME=%HOMEDRIVE%%HOMEPATH%
+set FZF_DEFAULT_COMMAND=fd -tf --path-separator / .
 
 prompt $E[30;43m$P$E[00m$S$E]9;9;$P$E\
 
